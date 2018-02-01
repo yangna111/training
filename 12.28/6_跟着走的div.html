@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#div{
+    width:100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    top:0;
+    left: 0;
+    cursor: move;
+}
+</style>
+</head>
+<body style="height:3000px">
+    <div id="div"></div>
+<script>
+   
+const div = document.getElementById('div');
+    document.onmousemove = function(ev){
+        div.style.left = ev.pageX-div.offsetWidth/2+'px';
+        div.style.top = ev.pageY-div.offsetTop/2+'px';
+    }
+</script>
+</body>
+</html>

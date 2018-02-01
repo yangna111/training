@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				position: relative;
+				margin: 0;
+			}
+			#p1{
+				position: absolute;
+				left: 420px;
+				top: 400px;
+			}
+			#sp{
+				display: inline-block;
+				position: absolute;
+				left: 420px;
+				top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn1">点击上一张</button>
+		<button id="btn2">点击下一张</button>
+		<img src="img/01.png" id="img">
+		<span id="sp">1/3</span>
+		<p id="p1">这是第1张图片</p>
+		<script>
+			//首先声明元素的id
+			var btn1=document.getElementById('btn1');
+			var btn2=document.getElementById('btn2');
+			var img=document.getElementById('img');
+			var sp=document.getElementById('sp');
+			var p1=document.getElementById('p1');
+			var arr=['img/01.png','img/02.png','img/03.png'];
+			var p1Text=['这是第1张图片','这是第2张图片','这是第3张图片'];
+			var num=0;
+			//顺序播放
+////////////////////////////////////////////////////			
+			//当点击btn1的时候图片顺序播放
+//			btn1.onclick=function(){
+//				num++
+//				if(num==arr.length){
+//					num=arr.length-1;
+//				}
+//				img.src=arr[num];
+//				p1.innerHTML=p1Text[num];
+//				sp.innerHTML=num+1+'/'+arr.length;
+//			}
+//			//当点击btn2的时候图片顺序播放
+//			btn2.onclick=function(){
+//				num--
+//				if(num==-1){
+//					num=0;
+//				}
+//				//图片变化
+//				img.src=arr[num];
+//			//	p表签里的文字变化
+//				p1.innerHTML=p1Text[num];
+//				//span里面的数字变化
+//				sp.innerHTML=num+1+'/'+arr.length;
+//			}
+			//////////////////////////////////////////////
+			//当点击的时候循环播放
+			//当点击btn1的时候图片播放
+			btn1.onclick=function(){
+				num++
+				if(num==arr.length){
+					num=0;
+				}
+				img.src=arr[num];
+				p1.innerHTML=p1Text[num];
+				sp.innerHTML=num+1+'/'+arr.length;
+			}
+			//当点击btn2的时候图片顺序播放
+			btn2.onclick=function(){
+				num--
+				if(num==-1){
+					num=arr.length-1;
+				}
+				//图片变化
+				img.src=arr[num];
+			//	p表签里的文字变化
+				p1.innerHTML=p1Text[num];
+				//span里面的数字变化
+				sp.innerHTML=num+1+'/'+arr.length;
+			}
+		</script>
+	</body>
+</html>

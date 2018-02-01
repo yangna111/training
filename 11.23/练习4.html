@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text"  id="t1"/>
+		<input type="button" id="btn" value="看看能学啥" />
+	</body>
+	<script>
+		//获取t1元素和按钮元素
+		var t1=document.getElementById('t1');
+		var btn=document.getElementById('btn');
+		//当点击按钮的时候，对input内输入的变量进行判断！！
+		btn.onclick=function(){
+			//声明inp是一个变量
+			var inp=t1.value;
+			if(inp== 'css'){
+				alert('有css课程');
+			}else if(inp=='html'){
+				alert('有html课程');
+			}else if(inp=='js'){
+				alert('哈哈，有JS课程');
+			}else{
+				alert('不好意思,这个真么有哦哦');
+			}
+		}
+	</script>
+</html>

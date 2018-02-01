@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+   ul,li,body{
+        margin: 0;
+        padding: 0;
+    }
+    #box{
+        width: 150px;
+        height: 500px;
+        border: 2px solid #ccc;
+        margin: 100px auto;
+        position: relative;
+        top:0;
+        overflow: hidden;
+    }
+    #div2{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 15px;
+        height: 30px;
+        background: rgb(58, 53, 53);
+    }
+    #div1{
+        position: absolute;
+        top:8px;
+        left:135px;
+        width: 15px;
+        height: 485px;
+        background: rgb(202, 196, 196);
+    }
+    #up{
+        width: 10px;
+        height: 8px;
+        position: absolute;
+        top:2px;
+        left:138px;
+        line-height: 8px;  
+    }
+    #down{
+        width: 10px;
+        height: 8px;
+        position: absolute;
+        line-height: 8px;
+        top:495px;
+        left:138px; 
+    }
+    ul.lis{
+        width: 130px;
+        position: absolute;
+        top:0;
+        left:0;
+    
+    }
+    ul li{
+        list-style: none;
+        width: 100px; 
+        margin-left: 30px;  
+    }
+</style>
+<body>
+    <div id="box">
+        <div id="up">^</div>
+        <div id="div1">
+            <div id="div2"></div>
+        </div>
+        <ul class="lis">
+            <!-- <li></li>
+            <li></li>
+            <li></li>
+            <li></li> -->
+        </ul>  
+        <div id="down">^</div>      
+    </div>
+<script src="data.js"></script>
+<script>
+    const lis = document.querySelector('.lis');
+    const div2 = document.getElementById('div2');
+    const box = document.getElementById('box');
+    const up = document.getElementById('up');
+    const down = document.getElementById('down');
+    let timer = null;
+    let timer1 = null;
+    let timer2 = null;
+    
+    for(var i=1;i<arrCity.length;i++){
+       var li = document.createElement('li');
+        lis.appendChild(li);
+        li.innerText = arrCity[i].name;
+    }
+    
+    div2.onmousedown = function(ev){
+        let disY = ev.pageY-div2.offsetTop;
+        
+        document.onmousemove = function(ev){
+            let t = ev.pageY - disY;
+                      
+           move(t);           
+        }
+        document.onmouseup = function(){
+            document.onmousemove = document.onmouseup =null;
+        }
+
+        return false;
+    }
+    
+    up.onmousedown = function(ev){
+        timer = setInterval(function(){
+            let t = div2.offsetTop;
+            if(ev.pageY-box.offsetHeight<t){
+                t-=5;
+            }
+            move(t)
+        },30)      
+    }
+    
+    up.onmouseup = function(){
+        clearInterval(timer)
+    }
+
+    div1.onmousedown = function(ev){
+         timer2 = setInterval(function(){
+            let t = div2.offsetTop;
+            if(ev.pageY-box.offsetTop-div2.offsetHeight-up.offsetHeight>t){
+                t += 5;
+            }else  if(ev.pageY-box.offsetTop-up.offsetHeight<t){
+                t-=5;
+                
+            }else{
+                clearInterval(timer2);
+            }
+            move(t)
+        },30)
+    }
+    div1.onmouseup = function(){
+        clearInterval(timer2);
+    }
+
+    down.onmousedown = function(ev){
+        timer1 = setInterval(function(){
+            let t = div2.offsetTop;
+            if(ev.pageY>t+div2.offsetHeight){
+                t += 5;
+            }
+            move(t)
+        },30)      
+    }
+
+    down.onmouseup = function(){
+        clearInterval(timer1)
+        clearInterval(timer2)
+    }
+
+
+
+
+     //鼠标滚轮
+    mousewheel(box,function(scroll){
+        let t = div2.offsetTop;
+       
+        if(scroll){
+            t -=5;
+        }else{
+            t +=5;
+        }
+
+       move(t)
+
+    })
+
+    function mousewheel(obj,fn){
+        obj.addEventListener('mousewheel',callback);
+        obj.addEventListener('DOMMouseScroll',callback);
+
+            let scroll = null
+            function callback(ev){
+                if(ev.wheelDelta){
+                    scroll = ev.wheelDelta >0?true:false;
+                }else{
+                    scroll = ev.detail <0?true:false;
+                }
+
+                fn && fn(scroll)
+                ev.preventDefault();
+            }
+            
+    }
+
+    function move(t){
+        if(t<0){
+               t = 0;
+               clearInterval(timer)
+               clearInterval(timer2)
+           }else if(t>div1.offsetHeight-div2.offsetHeight){
+                t = div1.offsetHeight-div2.offsetHeight
+                clearInterval(timer1)
+                clearInterval(timer2)
+           }
+            
+            let scale = t/(div1.offsetHeight-div2.offsetHeight);
+            lis.style.top =scale*(box.offsetHeight-lis.scrollHeight-down.offsetHeight*2)+'px';
+           div2.style.top = t+'px';
+    }
+
+
+
+</script>
+</body>
+</html>

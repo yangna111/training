@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{	
+				margin: 0 auto;			
+				position: relative;
+			}
+			#box div{
+				width:50px;
+				height: 50px;
+				background: #20CAA8;
+				position: absolute;
+				top: 0;
+				left:0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<script>
+		var box=document.getElementById('box');		
+		//第一次循环 生成10一个行的div
+		for(var i=0;i<10;i++){
+			//第二次循环生成10排div
+			for(var j=0;j<10;j++)
+			box.innerHTML+=`<div style="left:${i*55}px;top:${j*55}px"></div>`;
+		}
+		//声明box里生成的div
+		var divs=box.getElementsByTagName('div');
+		//for循环
+		for(var i=0;i<divs.length;i++){
+			//鼠标移入每个div
+			divs[i].onmouseover=function(){
+				//每个div插入背景图片
+				this.style.backgroundImage='url(img/01.png)';
+				//每个背景图片的定位是当前div的定位的负值(参考雪碧图)
+				this.style.backgroundPosition=`-${this.style.left} -${this.style.top}`;
+			}
+		}
+		</script>
+	</body>
+</html>

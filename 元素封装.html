@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <ul>
+        <li class="li1"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+   <script>
+
+      
+       // 1.parent,父级  2.*获取所有元素  3.判断 id  class（多个class要进行判断），tagname，
+        // arguements 实参集合  
+
+       
+   function $(){
+        var parent = document;
+        if(arguements.length == s2){
+            parent=arguments[1];
+        }
+        var allElements = parent.getElementsByTagName('*');
+        var selector = arguments[0][0];
+        var cName = arguments[0].substring(1);
+        var arr = [];
+       
+            if(selector === '#'){
+                return parent.getElementById(cName);
+            }else if(selector === '.'){
+                for(var i=0;i<allElements.length;i++){
+                    var sName= arguments[i].className.split(' ');
+                    for(var j=0;j<sName.length;j++){
+                        if(sName[j]===cName){
+                            arr.push(sName[i]);
+                        }
+                    }
+                } 
+                return arr; 
+             }else{
+                return parent.getElementsByTagName(arrguments[0]);
+             }
+        
+   }
+  
+   console.log($('.li1'))
+   </script>
+
+</body>
+</html>

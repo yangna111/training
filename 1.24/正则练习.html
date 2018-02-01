@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inp">
+    <input type="button" value="按钮" id="btn">
+<script>
+    /*
+    正则：专门用来检索（模糊范围）字符串的一种规则（工具）；
+        
+    */
+    //找出下列字符串中所有可以转成数字的字符，并且放到数组中
+
+   // let str = '378dsds89e1 ednnu9hr84vyecb83n80';
+        //str = str.match(/\d+/g)
+        //console.log(str);
+        
+
+    // 不用正则做  用原始代码来实现
+    // let temp = '';
+    // let arr=[];
+    // for(var i=0;i<str.length;i++){
+    //     if(!isNaN(parseInt(str[i]))){
+    //         temp+=str[i];
+    //     }else{
+    //         if(temp){
+    //             arr.push(temp);
+    //             temp='';
+    //         }
+    //     }
+        
+    // }
+    // // 是为了把最后一个80也push进数组
+    // if(temp){
+    //         arr.push(temp);
+    //         temp='';
+    // }
+
+//console.log(arr);
+/*
+    正则的简写：//
+
+    正规的写法：new RegExp('字符串'||正则，修饰符)
+    \ 转义符
+    \+ 字母 会有特殊的意义；
+
+*/
+    //let str = 'dsadkopi12320\\';
+    //alert('通知：\n今天下午不上课')  \n 换行
+
+/*
+        正则.test(字符串)  正则的一种方法
+        返回布尔值：
+        匹配到就是true；
+        匹配不到就返回false
+
+        修饰符 i 忽略大小写
+*/
+
+        // let str = 'Abc';
+        
+        // console.log(/a/i.test(str));
+        
+
+        /*
+        str.search('字符串'||正则)  字符串和正则
+        查找正则匹配到下标，有就返回下标，没有就是-1；
+        indexof 功能查不多  只支持字符串
+        */
+
+        //let str = 'abcX';
+        // console.log(str.search(/x/i));
+        
+        /*
+        str.match(正则)
+        把正则匹配到字符串放到一个数组里；
+        匹配到就返回数组，
+        匹配不到就返回null
+
+        如果只找到一个，那么数组中就会有三个属性 ，length还是1
+        第一个：找到的字符
+        第二个：找到字符的下标
+        第三个：整个字符串
+
+        如果找到多个字符，就只会有一个属性
+
+        \d 一个数字  \D  一个非数字
+        g 找全局
+
+        量词：（用来修饰前面的规则）
+        + 最少一个，最多不限
+        */
+        // let str = 'ab323627836278647823641c54323 n43kndsjk909fjkdb4';
+        // console.log(str.match(/\d+/g))
+        
+        /*
+        str.replace('字符串'||正则，'字符串'||cb)
+        第一个参数：替换谁
+        第二个参数：替换成什么 
+
+        cb：默认的前三个参数
+            第一个参数$0：当前匹配到的字符串
+            第二个参数$1: 当前匹配到的下标
+            第三个参数$2:  整个字符串；
+            第四个参数$3: undefined
+
+        */
+
+        // let str = '黩你它么个邪教之徒';
+       
+        // console.log(str.replace(/黩|它么|邪教/g,function($0,$1,$2,$3){
+        //     let arr= ['%','$','@','&','|','*'];
+        //     let str='';
+        //     for(let i=0;i<$0.length;i++){
+        //         str +=arr[Math.round(Math.random()*(arr.length-1))];
+        //     }
+        //     return str           
+        // }));
+            
+       /*
+        2018-1-24
+
+        2018年1月24
+
+        2018/1/24
+
+        2018.1.24
+
+        2018../-/1.----___---dsja24
+
+        2018年1月24日
+
+       */
+        
+        // let str = '2018../-/1.----___---dsja24';
+
+        // console.log(str.replace(/(\d+)\D+(\d+)\D+(\d+)/,function($0,$1,$2,$3){          
+           
+        //   return $1 +'年'+ $2 +'月'+ $3 +'日'
+            
+        // }))
+       
+        // let str = 'a1ca2ca3ca4ca5cabcadcaxc';
+        // console.log(str.match(/a[1-4a-z]c/g));
+
+            // const inp = document.getElementById('inp');
+            // const btn = document.getElementById('btn');
+
+            // btn.addEventListener('click',function(){
+            //     alert(1)
+            //     let tv = inp.value;
+            //     console.log(tv);
+                
+            //     if(/^(1[89])$|^([2-9][0-9])$|^(10[0-9])$|^110$/.test(tv)){
+            //         alert('通过');
+            //     }else{
+            //         alert('不要意思，未满18禁止入内')
+            //     }
+               
+            // })
+
+                //去前后空格
+            // let  str = '   dddddddf sjffjdkf   ';         
+            // console.log(str.replace(/^\s+|\s+$/g,''))
+
+            let  str ='miao ke tang';
+                console.log(str.replace(/\b/g,'|'));
+                
+</script>
+</body>
+</html>

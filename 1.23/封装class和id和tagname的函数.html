@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul">
+        <li class="li1"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+
+        console.log($('.li1'));
+        
+        function $(){
+            var parent = document;
+            if(arguments.length == 2){  
+                parent = arguments[1]; // $('.li1',$('#ul2'))   parent 是#ul2
+            }
+
+            var allElement = parent.getElementsByTagName('*');//找到所有的HTML上的所有tagname
+            var selector = arguments[0][0]; //  获取到的是#或者'.'
+            var cName = arguments[0].substring(1);
+            var arr = [];
+
+            if(selector==='#'){
+                return document.getElementById(cName);
+            }else if(selector==='.'){
+                for(var i = 0;i<allElement.length;i++){
+                    var sClass = allElement[i].className.split(' ');//split里的是空格  用于一个标签名下有两个class
+                    for(var j=0;j<sClass.length;j++){
+                        if(sClass[j]===cName){
+                            arr.push(sClass[i]);
+                        }
+                    }
+                }
+                return arr;
+            }else{
+                return parent.getElementsByTagName(arguments[0]);
+            }
+
+        }
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		.box{
+			width: 900px;
+			padding: 50px;
+			height: 500px;
+			background: #1230C8;
+			margin: 50px auto;
+		}
+		#t1{
+			display: inline-block;
+			width: 350px;
+			height: 490px;
+			padding-top: 10px;
+			border-radius: 10px;
+			background: #fff;
+			float: left;
+			vertical-align: top;
+			font: 16px/30px "微软雅黑";
+			color: #17021D;
+			padding-left: 20px;
+			
+		}
+		#box1{
+			width:100px;
+			height:200px;
+			float:left;	
+			margin-top: 150px;	
+			margin-left: 20px;	
+			margin-right: 20px;	
+			text-align: center;			
+		}
+		#t2{			
+			width: 350px;
+			height: 490px;
+			padding-top: 10px;
+			border-radius: 10px;
+			background: #fff;
+			float: left;
+			padding-left: 20px;
+			font: 16px/30px "微软雅黑";
+			color: #17021D;
+		}
+		#box1 i{
+			font-style: normal;
+			display: inline-block;
+			width: 90px;
+			height: 80px;
+			background: #20CAA8;
+			border-radius: 5px;		
+			color: #fff;
+		}
+		#box1 .sap{
+			font:18px/50px "微软雅黑";
+			color: #fff;
+		}
+		i span{
+			font-size: 40px;
+			line-height: 40px;
+		}
+		</style>
+	<body>
+		<div class="box">
+			<textarea name="" rows="" cols="" id="t1"></textarea>
+			<div id="box1">
+				<i><span>&rarr;</span><br/>把文字右移</i>
+				<span class="sap">0/0</span>
+			</div>
+			<div id="t2"></div>
+		</div>
+		<script>
+			var t1=document.getElementById('t1');
+			var t2=document.getElementById('t2');
+			var box1=document.getElementById('box1');
+			var sap=document.querySelector('.sap');
+			var timer=null;
+			
+			
+		box1.onclick=function(){
+			var num=0;
+			var br=t1.value.split('');
+			 sap.innerText=t1.value.length;
+			timer=(setInterval(function(){
+						
+			    if(br[num]>=br.length-1){			    	
+			    	clearInterval(timer)
+			    }	   
+				t2.innerHTML+=br[num];
+				t1.value=t1.value.substring(1)
+				
+			},30))			
+		}
+		    
+		 
+		       
+			
+			
+		
+		</script>
+	</body>
+</html>

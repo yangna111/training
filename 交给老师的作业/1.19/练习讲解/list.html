@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    html,body{
+		    	width: 100%;
+		    	height: 100%;
+		    	margin: 0;
+		    }
+		    body{
+		    	background: url(img/zpbg.png) no-repeat center center;
+		    	background-size: cover;
+		    	display: flex;
+		    }
+		    ul,li{
+		    	margin: 0;
+		    	padding: 0;
+		    	list-style: none;
+		    }
+		    p{
+		    	margin: 0;
+		    }
+		    a{
+		    	text-decoration: none;
+		    	color:#b6bdcf;
+		    }
+		    #content{
+		    	width: 700px;
+		    	height: 460px;
+		    	border-radius: 10px;
+		    	border: 1px solid #30343f;
+		    	margin: auto;
+		    	background: url(img/logo.png) no-repeat 25px 25px #252934;
+		    	box-sizing: border-box;
+		    	padding: 84px 0px 0px 25px;
+		    }
+		    #leftList{
+		    	float: left;
+		    	width: 60px;
+		    	padding-right: 12px;
+		    	height: 100%;
+		    	background: url(img/leftListBg.png) no-repeat right top;
+		    }
+		    #leftList li{
+		    	text-align: right;
+		    	height: 68px;
+		    	padding-top: 12px;
+		    	color: #6a7686;
+		    	font: 10px/18px "微软雅黑";
+		    }
+		    #leftList li span{
+		    	font-size: 12px;
+		    	display: block;
+					cursor: pointer;
+		    }
+		    #leftList .active span{
+		    	color: #ff2c4f;
+		    }
+		    #right{
+		    	width: 600px;
+		    	height: 100%;
+		    	float: left;
+		    }
+		    #rightList li{
+		    	height: 82px;
+		    	width: 100%;
+		    	box-sizing: border-box;
+		    	padding: 20px 25px 20px 30px;
+		    	position: relative;
+					cursor: pointer;
+		    }
+		    #rightList li:hover{
+		    	background-color: #1e212a;
+		    }
+		    #rightList li:hover .num{
+		    	color: #ff2c4f;
+		    }
+		    #rightList li:hover:before{
+		    	content: "";
+		    	width: 2px;
+		    	height: 54px;
+		    	position: absolute;
+		    	background-color: #ff2c4f;
+		    	left: -3px;
+		    	top: 10px;
+		    }
+		    #rightList li:after{
+		    	content: "";
+		    	width: 543px;
+		    	height: 1px;
+		    	position: absolute;
+		    	bottom: 0px;
+		    	right: 25px;
+		    	background:url(img/lineBg.png) repeat-x;
+		    }
+		    #rightList .num{
+		    	font-size: 30px;
+		    	font-family: arial;
+		    	color:#6a7686;
+		    	float: left;
+		    	width: 36px;
+		    	height: 40px;
+		    	border-right: 1px solid #303642;
+		    }
+		    #rightList .list{
+		    	float: left;
+		    	width: 500px;
+		    	margin-left: 6px;
+		    	font-size: 14px;
+		    	color: #b6bdcf;
+		    	font-family: "微软雅黑";
+		    }
+		    #rightList .list span{
+		    	float: left;
+		    }
+		    
+		    .list>a:nth-of-type(1){
+		    	height: 26px;
+		    	float: none;
+		    	font-size: 14px;
+		    }
+		    .job{
+		    	margin-right: 15px;
+		    }
+		    #rightList .list time{
+		    	float: right;
+		    	color: #606a7a;
+		    }
+		    .list .text{
+		    	float: left;
+		    	width: 430px;
+		    	overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+		    }
+		    .list a{
+		    	float: right;
+		    	font-size: 12px;
+		    }
+		    nav{
+		    	font-size: 0px;
+		    	text-align: center;
+		    }
+		    nav a{
+		    	font: 12px/46px "微软雅黑";
+		    	display: inline-block;
+		    	vertical-align: middle;
+		    	width: 24px;
+		    }
+		    nav a.active{
+		    	color: #eb2a4b;
+		    }
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<ul id="leftList">
+				<!-- <li><span>社会招聘</span>society</li>
+				<li class="active"><span>校园招聘</span>campus</li> -->
+			</ul>
+			<div id="right">
+				<ul id="rightList">					
+					<!-- <li>
+						<span class="num">01</span>
+						<div class="list">
+							<a href=""><span class="job">职位需求：前端开发工程师</span><span>需求人数：2名</span><time>2014-04-10</time></a>
+							<p><span class="text">岗位要求：布拉布拉布拉一大段话布拉布拉布拉一大段话布拉布拉布拉一大段话</span><a href="javascript:;">查看详情>></a></p>
+						</div>
+					</li>
+					<li>
+						<span class="num">02</span>
+						<div class="list">
+							<a href=""><span class="job">职位需求：前端开发工程师</span><span>需求人数：2名</span><time>2014-04-10</time></a>
+							<p><span class="text">岗位要求：布拉布拉布拉一大段话布拉布拉布拉一大段话布拉布拉布拉一大段话</span><a href="javascript:;">查看详情>></a></p>
+						</div>
+					</li>
+					<li>
+						<span class="num">03</span>
+						<div class="list">
+							<a href=""><span class="job">职位需求：前端开发工程师</span><span>需求人数：2名</span><time>2014-04-10</time></a>
+							<p><span class="text">岗位要求：布拉布拉布拉一大段话布拉布拉布拉一大段话布拉布拉布拉一大段话</span><a href="javascript:;">查看详情>></a></p>
+						</div>
+					</li>
+					<li>
+						<span class="num">04</span>
+						<div class="list">
+							<a href=""><span class="job">职位需求：前端开发工程师</span><span>需求人数：2名</span><time>2014-04-10</time></a>
+							<p><span class="text">岗位要求：布拉布拉布拉一大段话布拉布拉布拉一大段话布拉布拉布拉一大段话</span><a href="javascript:;">查看详情>></a></p>
+						</div>
+					</li> -->
+				</ul>
+				<nav id="nav">
+					<!-- <a href="javascript:;">&lt;</a>
+					<a class="active" href="javascript:;">1</a>
+					<a href="javascript:;">2</a>
+					<a href="javascript:;">3</a>
+					<a href="javascript:;">4</a>
+					<a href="javascript:;">&gt;</a> -->
+				</nav>
+			</div>
+		</div>
+<script src="js/data.js"></script>
+<script>	
+	//导航页
+	const bottomNav = document.getElementById('nav');
+	//左侧列表
+	const  leftList = document.getElementById('leftList');
+	//主题页面
+	const  rightList = document.getElementById('rightList');
+	let num = 1;
+
+	
+	let hh = window.location.hash;
+	let h = '';
+	if(hh){  //这个判断是为了初始化，如果打开页面有哈希值就就截取，如果没有就走默认的社会
+		h = hh.substring(1).split('&')[0]; 
+	  //hh.substring(1)从#号后面开始截取全部
+		if(hh.substring(1).split('&')[1]){  //hh.substring(1).split('&')[1]  log出来是page=1;
+			
+			num = hh.substring(1).split('&')[1].split('=')[1]*1;   //#lx=xy&page=1  截取的是=后面的数字1
+		
+		}
+	}else{
+		h = 'lx=sh';
+	}
+	window.location.hash = h+'&page='+num;
+
+    //let h = 'lx=sh';  //初始化的hash值    截取=lx或者sh里面的数据
+	let newData = data[h.split('=')[1]]; 
+   // console.log(newDate);
+
+	
+   
+
+
+	/*渲染导航
+			<li><span>社会招聘</span>society</li>
+			<li class="active"><span>校园招聘</span>campus</li>
+	*/
+
+
+
+
+		//初始化左侧列表
+		let list = data.list;// data里的数据list （社会sl和校园xl）
+		let html ='';
+		//当返回时通过hash来判断是导航的社会招聘红还是校园招聘红
+		let active = h.split('=')[1]=='sh'?0:1;
+
+		list.forEach((e,i)=>{  // data-index="${e.lx}  索引方便后面数据的切换
+			html +=`<li data-lx="${e.lx}" class="${i==active?'active':''}">
+						<span>${e.text}</span>
+						${e.eng}
+					</li>`;
+				
+		});
+		leftList.innerHTML = html;
+
+		let btns = Array.from(leftList.children);
+		
+		btns.forEach((e,i)=>{
+			e.onclick = function(){	
+				btns.map(e=>e.className=''); //大清洗
+				e.className = 'active'; //给当前的元素加上active
+				//window.location.hash = 'lx='+e.dataset.lx;//初始化hash	
+				h = 'lx='+e.dataset.lx;	 //点击的时候hash值会变化
+				num = 1; //点击左侧栏的sh和校园时候默认显示在第一页
+				window.location.hash = h;//让hash值始终是那个点击变化的值
+			
+			}  //e.dataset.lx   
+			// 当前元素的data-lx 索引  通过这个索引，当hash值改变时来切换页面改变数据
+		})
+		
+      rightList.innerHTML= render(num-1);
+		
+		function render(num=0){
+			let temp = '';  //i=num*4;i<num*4+4;i++  每页能放4条数据，
+			for(var i=num*4;i<num*4+4;i++){
+				let d = newData.text[i];// newDate是默认社会数据展示   i是社会数据里每一条信息  
+				if(d){
+					temp +=`
+							<li>
+								<span class="num">${data.add0(i+1)}</span>
+								<div class="list">
+									<a href="content.html?${h.split('=')[1]}&${i}">
+										<span class="job">职位需求：${d.zw}</span><span>需求人数:${d.rs}名</span><time>${data.formateDate(d.sj)}</time>
+									</a>
+									<p><span class="text">${d.info[0].t}${d.info[0].l.join('')}</span><a href="javascript:;">查看详情>></a></p>
+								</div>
+							</li>`;
+					}		
+				}
+			return temp;
+			}
+
+		/*
+			分页  
+			<a href="javascript:;">&lt;</a>
+			<a class="active" href="javascript:;">1</a>
+		*/
+	
+		createPage()
+		// 分页
+		function createPage(){
+			let n = num-1<0?0:num-1;
+			//console.log(num);
+			
+			let len = Math.ceil(newData.text.length/4);  //向上取整分页
+			let pageStr = '<a href="javascript:;">&lt;</a>';
+			for(var i=0;i<len;i++){
+				pageStr +=`<a class="${i==n?'active':''}" href="javascript:;">${i+1}</a>`;
+			}
+			pageStr +='<a href="javascript:;">&gt;</a>';
+			bottomNav.innerHTML = pageStr; 
+			//console.log(window.location.hash);
+		}
+		
+	
+		//点击切换数据  通过事件委托父级来点击子级
+		bottomNav.onclick = function(ev){
+			if(ev.target.tagName === 'A'){  //如果点击的标签名是a，就进入if判断
+				if(!isNaN(ev.target.innerText*1)){//判断点击的是不是数字
+					rightList.innerHTML= render(ev.target.innerText-1);//进入判断右侧主题内容改变到第二页
+					Array.from(bottomNav.children).forEach(e=>e.className='');  //清除之前的class
+					ev.target.className = 'active'; //给当前的加上class
+					num = ev.target.innerText*1;
+				}else{
+					if(ev.target.innerText ==='>'){
+						num++;
+						if(num>bottomNav.children.length-2){
+							num = bottomNav.children.length-2;
+						}
+					}else{
+						num--;
+						if(num<1){
+							num=1;
+						}
+					}
+				}
+			 window.location.hash = h+'&page='+num;
+			}
+		}
+
+		window.onhashchange = function(){
+			//hash 点击谁是谁  xy或sh
+			let hash = window.location.hash.split('&');
+            //console.log(hash);
+			//console.log(hash);["#lx=sh"] ["#lx=xy"]
+			
+			for(var i=0;i<hash.length;i++){
+				if(hash[i].includes('lx=')){
+					hash = hash[i].substring(4);  	//#lx=xy  截取xy  #lx=sh	截取sh			
+				}
+			}
+
+			//通过onhashchange的变化来截取sh和xy
+			newData = data[hash];  //hash 是一个变量 sh 或者xy
+			rightList.innerHTML= render(num-1);
+			createPage()
+		}
+	
+</script>
+</body>
+</html>

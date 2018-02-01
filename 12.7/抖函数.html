@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#img{
+			    position: absolute;
+			    top:0;
+			    left:0;
+			}
+		</style>
+	</head>
+	<body>
+		 <img id="img" src="img/1.png" alt="">
+		 <script>
+		 	let img1=document.getElementById('img');
+		 	
+		 	img1.onclick=function (){
+			
+				shake()
+			}
+		function shake(){
+			let timer=null;
+			let num=0;
+			let arr=[];
+			for(var i=10;i>0;i-=2){
+				arr.push(-i,i)
+			}
+			arr.push(0);
+			timer=setInterval(function(){
+				img1.style.left=arr[num]+'px';
+				num++
+				if(num>arr.length){
+					clearInterval(timer);
+					num=0
+					//callback && //callback();
+				}
+			},50)
+		}
+		
+		 </script>
+	</body>
+</html>

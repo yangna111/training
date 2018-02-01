@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	
+			<link rel="stylesheet" type="text/css" href="slide.css" />
+		<style type="text/css">
+			body{
+				background-color: #ffd800;
+			}
+		</style>
+	
+	</head>
+	<body>
+		<div class="slide">
+			<div class="pic">
+			<!--	<img src="ads/1.png"/>-->
+			</div>
+			<div class="prev"></div>
+			<div class="next"></div>
+			<div class="nav">
+				<span>
+					<a href="javascript:;">
+						<img src="ads/1.png"/>
+					</a>
+				</span>
+			</div>
+		</div>
+		<script>
+			//声明图片数组
+			var arr=['ads/1.png','ads/2.png','ads/3.png','ads/4.png','ads/5.png'];
+			var num=0;
+			//声明元素
+			var pic=document.querySelector('.pic');
+			var prev=document.querySelector('.prev');
+			var next=document.querySelector('.next');
+			var nav=document.querySelector('.nav');
+			
+	
+			for(i=0;i<arr.length;i++){
+				//for循环生成多个span元素  "<span class="${i==0?'active':''}">"  不太明白三木  非他即它 这个span为什么要判断
+				nav.innerHTML +=`<span>
+					<a href="javascript:;">
+						<img src="${arr[i]}"/>
+					</a>
+				</span>`;				
+				
+			}
+			//初始化图片
+			pic.innerHTML+=`<img style="opacity:${1}" src="${arr[0]}"/>`;
+			var aSpan=document.querySelectorAll('span');
+			
+				for(var i=0;i<aSpan.length;i++){
+					aSpan[i].num=0;
+					aSpan[i].onclick=function(){	
+						num++
+					pic.innerHTML+=`<img style="opacity:${1}" src="${arr[this.num]}"/>`;	
+				}
+				
+				
+				
+			}
+		</script>
+	</body>
+</html>

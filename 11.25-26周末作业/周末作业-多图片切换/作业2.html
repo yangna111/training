@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width: 700px;
+				height:500px;
+				background:#9c5a9c;
+				margin:100px auto;
+				text-align: center;
+			}
+			#box1{
+				display: inline-block;
+				width: 640px;
+				height:460px;
+				margin-top: 20px;
+				background:#fff;
+				border-radius: 15px;
+			}
+			#box2{
+				display: inline-block;
+				width: 580px;
+				height:420px;
+				margin-top: 20px;
+				background:#000;
+				position: relative;
+				font-size: 0;
+			}
+			#title{
+				display: inline-block;
+				width: 300px;
+				height:40px;
+				margin-top: 15px;
+				margin-bottom: 50px;
+			}
+			#title button{
+				float: left;
+				width: 150px;
+				height:40px;
+				background: none;
+				box-sizing: border-box;
+				border: 1px solid #fff;
+				margin-right: -1px;
+				font:16px/40px "微软雅黑";
+				color: #fff;
+				border-radius: 2px;
+			}
+			
+			#img{
+				display: inline-block;
+				width: 580px;
+				height:315px;
+			}
+			a{
+		    	width: 40px;
+		    	height: 40px;
+		    	background-color: #7c727c;
+		    	opacity: 0.2;
+		    	display: block;
+		    	color: #e8dce8;
+		    	font-size: 38px;
+		    	line-height: 40px;
+		    	position: absolute;
+		    	top: 60%;
+		    	text-align: center;
+		    	
+		    }
+		    #after2{
+		    	position: absolute;
+		    	top: 60%;
+		    	right:0;
+		    }
+		     a:link,a:active,a:visited{
+		    	text-decoration: none;
+		    	
+		    }
+		    a:hover{
+		    	opacity: 0.7;
+		    }
+		    #sp{
+		    	display: inline-block;
+				width: 40px;
+				height:40px;
+				font:16px/40px "微软雅黑";
+				color: #fff;
+				position: absolute;
+		    	top: 25%;
+		    	left:270px;
+		    }
+		    #p1{
+		    	display: inline-block;
+				width: 580px;
+				height:40px;
+				font:16px/40px "微软雅黑";
+				color: #fff;
+				position: absolute;
+		    	bottom:0;
+		    	left: 0;
+		    	margin: 0;		    	
+		    	background-color: rgba(112,54,112,0.3);
+		    }
+		    #sp1{
+		    	margin-top: 25px;
+		    	font:16px/40px "微软雅黑";
+				color: #fff;
+		    }
+		    #sp2{
+		    	position: absolute;
+		    	right: 10px;
+		    	top:0;
+		    	font: 30px/40px "微软雅黑";
+		    	color: #cbc1c1;
+		    	background: none;
+		    	border:0;
+		    }
+		    #sp3{
+		    	margin-top: 25px;
+		    	font:16px/40px "微软雅黑";
+				color: #fff;
+		    }
+		    #sp4{
+		    	position: absolute;
+		    	right: 10px;
+		    	top:0;
+		    	font: 30px/40px "微软雅黑";
+		    	color: #cbc1c1;
+		    	background: none;
+		    	border:0;
+		    }
+		    #i1{
+		    	padding-top: 10px;
+				width: 290px;
+				height:150px;
+				border:1px solid #cbc1c1;
+				font:18px/40px "微软雅黑";
+				color: #fff;
+				position: absolute;
+		    	left: 120px;
+		    	top:150px;    	
+		    	background-color: rgba(112,54,112,0.6);
+		    	display: none;
+		    }
+		    #i2{
+		    	padding-top: 10px;
+				width: 290px;
+				height:150px;
+				border:1px solid #cbc1c1;
+				font:18px/40px "微软雅黑";
+				color: #fff;
+				position: absolute;
+		    	left: 120px;
+		    	top:150px;    	
+		    	background-color: rgba(112,54,112,0.6);
+		    	display: none;
+		    }
+		    em{
+		      	color: #cbc1c1;	
+		      	font-style: normal;
+		    }
+		    #btn3{
+		    	background:none;
+		    	color:#fff;
+		    }
+		     #btn4{
+		    	background:none;
+		    	color:#fff;
+		    }
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="box1">
+				<div id="box2">
+					<div id="title">
+						<button id="btn1">循环切换</button>
+						<button id="btn2">顺序切换</button>
+					</div>
+					<div id="pic">
+						<img src="img/1.jpg" id="img">
+						<span id="sp">1/4</span>						
+						<a href="javascript:;" id="before1"><</a>
+						<a href="javascript:;" id="after2">></a>
+						<p id="p1">文字描述一</p>
+						<div id="i1">
+							<span id="sp1">JavaScript提醒 <br/><em>这已经是最后一张了哦!</em></span><br />
+							<button id="sp2">&times;</button>
+							<button id="btn3">确定</button>
+						</div>
+						<div id="i2">
+							<span id="sp3">JavaScript提醒 <br/><em>这已经是第一张了哦!</em></span><br />
+							<button id="sp4">&times;</button>
+							<button id="btn4">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var btn1=document.getElementById('btn1');
+			var btn2=document.getElementById('btn2');
+			var btn3=document.getElementById('btn3');
+			var img=document.getElementById('img');
+			var sp=document.getElementById('sp');
+			var before1=document.getElementById('before1');
+			var after2=document.getElementById('after2');
+			var p1=document.getElementById('p1');			
+			var i1=document.getElementById('i1');
+			var num=0;
+			var arrImg=['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];  
+			var p1Text=['文字描述一','文字描述二','文字描述三','文字描述四'];
+			function fn1(){
+					img.src=arrImg[num];
+					p1.innerText=p1Text[num];
+					sp.innerHTML=num+1+'/'+arrImg.length;
+					
+			}	
+			function fn4(){
+				btn3.onclick=function(){
+						i1.style.display='none';
+					}
+				sp2.onclick=function(){
+						i1.style.display='none';							
+					}
+				btn4.onclick=function(){
+						i2.style.display='none';							
+					}
+				sp4.onclick=function(){
+						i2.style.display='none';					
+					}
+			}
+			
+			function fn2(){
+			//点击before1的时候循环切换
+				before1.onclick=function(){
+					num++
+					if(num==arrImg.length){
+						num=0;
+					}
+					fn1()
+				}
+			//点击after1的时候循环切换	
+				after2.onclick=function(){
+					num--
+					if(num==-1){
+						num=arrImg.length-1;
+					}					
+					fn1()
+				}	
+			}
+			
+			function fn3(){
+				//点击before1的时候顺序切换
+				before1.onclick=function(){					
+					num++
+					if(num==arrImg.length){
+						num=arrImg.length-1;
+						i1.style.display='block';
+						btn1.disabled=true;
+						btn2.disabled=true;
+					}
+					fn1()
+					fn4()
+						
+				}
+			//点击after1的时候顺序切换	
+				after2.onclick=function(){					
+					num--
+					if(num==-1){
+						num=0
+						i2.style.display='block';
+						btn1.disabled=true;
+						btn2.disabled=true;
+					}
+					fn1()
+					fn4()
+					
+				}
+			}		
+			
+	////////////////////////////////////////	
+	
+			//点击btn1循环播放
+			btn1.onclick=function(){
+				btn1.style.background='white';
+				btn1.style.color='black';
+				fn2()
+				btn2.style='';
+			}	
+			//点击btn2顺序播放
+			btn2.onclick=function(){
+				btn2.style.background='white';
+				btn2.style.color='black';
+				fn3()
+				btn1.style='';
+			}	
+		</script>
+	</body>
+</html>

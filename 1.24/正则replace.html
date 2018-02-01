@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+textarea{
+    width: 500px;
+    height: 200px;
+    display: block;
+}
+</style>
+
+<body>
+
+<textarea id="d1"></textarea>
+<textarea id="d2"></textarea>
+<input type="button" value="按钮" class="btn">
+    <script>
+        const d1 = document.getElementById('d1');
+        const d2 = document.getElementById('d2');
+        const btn = document.getElementsByClassName('btn')[0];
+        
+        let str = 'ooprpekjdgljlpfjvdvkmfkmggl';
+        
+        console.log(str.replace(/o|j|k|g/g,function($0,$1,$2){
+            let temp = '';
+            for(let i=0;i<str.length;i++){
+                temp='*'
+            }
+            return temp;
+        }));
+        
+
+        
+    </script>
+</body>
+</html>

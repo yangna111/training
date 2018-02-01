@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #div1{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top:0;
+        background: red;
+    }
+</style>
+<body>
+    <div id="div1"></div>
+    <script>
+        const div1 = document.getElementById('div1');
+
+        addwheel(document,function(o){
+            let t = div1.offsetTop;
+            if(o){  //o是布尔值  判断滚轮上下
+                t -=5; 
+            }else{
+                t+=5;
+            }
+            if(t<0){
+                t=0;
+            }else if(t>document.documentElement.clientHeight){
+                t = document.documentElement.clientHeight;
+            }
+
+            div1.style.top = t+'px';
+        })
+
+        
+
+        function addwheel(obj,fn){
+            obj.addEventListener('mousewheel',callback);
+            obj.addEventListener('DOMMouseScroll',callback);
+
+            function callback(ev){
+                let o = true;
+                if(ev.wheelDelta){  // ie和chorm 下的滚轮
+                    o = ev.wheelDelta>0?true:false;
+                }else {
+                    o = ev.detail<0?true:false;
+                }
+                fn && fn(o);
+                ev.preventDefault();  // 阻止默认
+            }
+        }
+           
+        
+
+    </script>
+</body>
+</html>

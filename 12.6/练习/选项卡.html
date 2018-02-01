@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.active{
+			    background: yellow
+			}
+			div{
+			    width:200px;
+			    height: 150px;
+			    border: 1px solid #000;
+			    display: none;
+			}
+			div.show{
+			    display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="按钮一" class="active"> 
+	    <input type="button" value="按钮二"> 
+	    <input type="button" value="按钮三"> 
+	    <div class="show">123213321312</div>
+	    <div>32222222222</div>
+	    <div>33333333333</div>
+	    
+	    <script>
+	    	var btns=document.getElementsByTagName('input');
+	    	var divs=document.getElementsByTagName('div');
+	    	var a=btns[0];
+	    	var timer=null;
+	    	var num=0;
+	    	
+	    	for(let i=0;i<btns.length;i++){
+	    		btns[i].index=i;
+	    		btns[i].onclick=function(){
+	    			num=i;//
+	    			tab(i);
+	    		}
+	    	}
+	    	
+	    	timer=setInterval(function(){ //有点明白  感觉是这样  但是又有点不理解
+	    		num++
+	    		num%=btns.length;
+	    		tab(num); //  同一个效果的情况下，一个函数只有一个形参可以传多个实参码？  tab(num),tab(i)?
+	    	},1000)  
+	    	
+	    function tab(i){
+	    	a.className='';						
+			divs[a.index].className='';
+			btns[i].className='active';	 
+			divs[i].className='show';
+			a=btns[i];
+	    }
+	    </script>
+	</body>
+</html>

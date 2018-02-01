@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width:100px;
+				height:100px;
+				background:red;
+				display: none;
+				transition: all 500ms;				
+			}
+		</style>
+	</head>
+	<body>
+		<botton id="btn">点击按钮</botton>
+		<div id="box"></div>
+		
+		<script>
+			var btn=document.getElementById("btn");
+			var box=document.getElementById("box");
+				btn.onclick=function(){
+				box.style.display='block'
+				box.onmouseover=function(){
+					box.style.display='block';
+					box.style.width='200px';
+					box.style.height='200px';
+					box.style.opacity='0.5';
+				}
+				box.onmouseout=function(){
+					box.style.width='100px';
+					box.style.height='100px';
+					box.style.opacity='1';
+				}
+			}
+		</script>
+	</body>
+</html>

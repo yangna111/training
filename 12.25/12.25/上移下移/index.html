@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+<section class="wrap">
+	<div class="wrap-left">
+		<ul class="list">
+			<li>
+				<span>jQuery</span>
+				<div class="btn">
+					<a href="javascript:;"  class="up">上移</a>
+					<a href="javascript:;" class="down">下移</a>
+				</div>
+			</li>
+			<li>
+				<span>AJAX</span>
+				<div class="btn">
+					<a href="javascript:;"  class="up">上移</a>
+					<a href="javascript:;" class="down">下移</a>
+				</div>
+			</li>
+			<li>
+				<span>JS基础-2</span>
+				<div class="btn">
+					<a href="javascript:;"  class="up">上移</a>
+					<a href="javascript:;" class="down">下移</a>
+				</div>
+			</li>
+			<li>
+				<span>移动端实战</span>
+				<div class="btn">
+					<a href="javascript:;"  class="up">上移</a>
+					<a href="javascript:;" class="down">下移</a>
+				</div>
+			</li>
+			<li>
+				<span>canvas游戏</span>
+				<div class="btn">
+					<a href="javascript:;"  class="up">上移</a>
+					<a href="javascript:;" class="down">下移</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="wrap-right">
+		<ul class="list">
+			<li>
+				<span>jQuery</span>
+				<div class="btn">
+					<a href="javascript:;"  class="up"></a>
+					<a href="javascript:;" class="down"></a>
+				</div>
+			</li>
+			<li>
+				<span>小程序</span>
+				<div class="btn">
+					<a href="javascript:;"  class="up"></a>
+					<a href="javascript:;" class="down"></a>
+				</div>
+			</li>
+			<li>
+				<span>jQuery</span>
+				<div class="btn">
+					<a href="javascript:;"  class="up"></a>
+					<a href="javascript:;" class="down"></a>
+				</div>
+			</li>
+			<li>
+				<span>面向对象-上</span>
+				<div class="btn">
+					<a href="javascript:;"  class="up"></a>
+					<a href="javascript:;" class="down"></a>
+				</div>
+			</li>
+			<li>
+				<span>面向对象-下</span>
+				<div class="btn">
+					<a href="javascript:;"  class="up"></a>
+					<a href="javascript:;" class="down"></a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<script>
+
+		const wrap = document.getElementsByTagName('div')[0]
+		const list = wrap.getElementsByTagName('ul')[0];
+		const lis = list.getElementsByTagName('li');
+		let arr = [];  //把所有li的高度存在一个数据中，通过操作这个数据让li上下移动
+
+		for(var i=0;i<lis.length;i++){
+			arr.push(lis[i].offsetTop); //通过循环每一个li 把他们top值push 到arr里；
+			lis[i].style.top = lis[i].offsetTop+'px';
+		}	
+
+		for(var i=0;i<lis.length;i++){
+			lis[i].style.position = 'absolute';  //定位li
+			let up = lis[i].children[1].children[0];  //向上移
+			let down =lis[i].children[1].children[1];//向下移；
+
+			up.onclick = function(){
+				let parent = this.parentNode.parentNode; //li
+				let prev = parent.previousElementSibling;  //li的上一个兄弟元素li
+				list.insertBefore(parent,prev); //把当前的li插到上一个兄弟元素的上面			
+				mv()  //调用运动函数
+				
+			}
+			down.onclick = function(){
+				let parent = this.parentNode.parentNode; 
+				let next = parent.nextElementSibling;
+				let last = list.lastElementChild;
+				if(next){
+					list.insertBefore(next,parent); 
+				}else{
+					list.insertBefore(parent,list.children[0]); 
+				}
+				mv()
+			}
+		}
+			
+	
+	
+	function mv(){
+		for(var i=0;i<lis.length;i++){
+			move({
+				attrs:{
+					top:arr[i]
+				},
+				obj:lis[i],
+				d:500,			
+			})
+			
+	}
+}
+	
+</script>
+<script src="js/tween.js"></script>	
+</body>
+</html>

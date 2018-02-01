@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#ul{
+				width: 200px;
+				border: 1px solid #0F1115;
+				margin: 50px auto;
+				list-style: none;				
+			}
+			li{
+				height: 50px;
+				line-height: 50px;	
+				text-align: center;			
+			}
+			.r{
+				background: red;
+			}
+			.g{
+				background: green;
+			}
+			.c{
+				background: blue;
+			}
+			.d{
+				background: #7592D2;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="ul">
+			<li class="r">111</li>
+			<li>222</li>
+			<li>333</li>
+			<li>444</li>
+			<li>555</li>
+			<li>666</li>
+			<li>777</li>
+			<li class="r">888</li>
+		</ul>
+		
+		
+		<script>
+			const ul = document.getElementById('ul');
+			let lis = Array.from(ul.children);
+			
+			lis.forEach(function(el,i){				
+				el.onmouseover = function(){
+					if(this == ul.firstElementChild ||this == ul.lastElementChild){
+						lis.forEach(function(el,i){
+							if(i!=0 && i!= lis.length-1){
+							lis[i].classList = '';
+							}
+					});		
+				
+					this.classList.add('g');
+					if(this.previousElementSibling){
+						this.previousElementSibling.classList.add('d');
+					}
+					if(this.nextElementSibling){
+						this.nextElementSibling.classList.add('d');	
+					}
+					
+			
+				}else {
+					lis.forEach(function(el,i){
+						if(i!=0 && i!= lis.length-1){
+							el.classList = '';
+						}
+						
+					});
+					this.className= 'c';
+					
+					if(this.previousElementSibling !=ul.firstElementChild ){
+						this.previousElementSibling.classList.add('d');
+					};
+					if(this.nextElementSibling !=ul.lastElementChild){
+						this.nextElementSibling.classList.add('d');
+					}
+				}
+				}
+				
+				el.onmouseout = function(){
+					if(this == ul.firstElementChild || this == ul.lastElementChild){
+					  this.className = 'r';
+					 }
+					 	//t.className ='b';
+					 	if(this != ul.firstElementChild && this != ul.lastElementChild){
+					 		
+						 		if(this.previousElementSibling !=ul.firstElementChild ){
+							this.previousElementSibling.className='';
+							};
+							if(this.nextElementSibling !=ul.lastElementChild){
+								this.nextElementSibling.className='';
+							}
+					 
+					 	}
+					 	
+					
+				}
+			})
+			
+			
+		</script>
+	</body>
+</html>

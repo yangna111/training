@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				color: #fff;
+				top: 50px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="移入" />
+		<div id="div1">
+			<ul>
+				<li>衣服更多</li>
+				<li>饰品更多</li>
+			</ul>
+		</div>
+		<script>
+			var btn=document.querySelector('input');
+			var div1=document.getElementById('div1');
+			var timer=null;
+			btn.onmouseenter=div1.onmouseenter=function(){
+				div1.style.display='block';
+				clearTimeout(timer);
+			}
+			btn.onmouseleave=div1.onmouseleave=function(){
+				timer=setTimeout(function(){
+					div1.style.display='none';
+				},1000)
+			}
+		</script>
+	</body>
+</html>

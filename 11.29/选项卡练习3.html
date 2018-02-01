@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		.active{
+		    background: yellow;
+		}
+		div.show{
+		    display: block;
+		}
+		div{
+		    width:150px;
+		    height: 150px;
+		    border: 1px solid #000;
+		    display: none;
+		}
+</style>
+	</head>
+	<body>
+		<button type="button" class="active">按钮一</button>
+	    <button type="button">按钮二</button>
+	    <button type="button">按钮三</button>
+	    <div class="show">111111</div>
+	    <div>222222</div>
+	    <div>33333</div>
+	    <script>
+	    	var btns=document.querySelectorAll('button');
+	    	var divs=document.querySelectorAll('div');
+	    	let a=btns[0];
+	    	let b=divs[0];
+	    	for(var i=0;i<btns.length;i++){
+	    	
+	    		btns[i].num=i;//给所有的btn加索引
+	    		divs[i].num=i;//给所有的div加索引
+	    		btns[i].onclick=function(){
+	    			a.className='';//清楚第一个btn的active
+	    			b.className='';//清楚第一个div的active
+    				btns[this.num].className='active';//给当前的btn加上active
+	   				divs[this.num].className='show';// 给当前的div加上show
+	    			a=btns[this.num];//让当前的btn的操作等于第一个btn的操作
+	    			b=divs[this.num];//让当前的div的操作等于第一个div的操作
+	    		}
+	    	}
+	    </script>
+	</body>
+</html>

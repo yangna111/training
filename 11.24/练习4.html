@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#ul{
+				padding: 0;
+				margin: 0;
+				width: 1000px;
+				
+			}
+			li{
+				list-style: none;
+				height: 100px;
+				width: 100px;
+				background:red;	
+				color:#fff;			
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="ul">
+			
+		</ul>
+		<script>
+//			var ul=documnt.getElementById('ul')
+//			var li1=document.querySelectorAll('li');
+			for(var i=0;i<100;i++){
+				ul.innerHTML+='<li>'+(i+1)+'</li>';
+			}
+		</script>
+	</body>
+</html>

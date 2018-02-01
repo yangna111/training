@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				
+				width: 100px;
+				height: 100px;
+				background: #20CAA8;
+				position: absolute;
+				left: 0;
+				top:50px
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">点击</button>
+		<div id="box"></div>
+			
+		<script>
+			var btn=document.getElementById('btn');
+			var box=document.getElementById('box');
+			let timer=null;
+			let num=0;
+			
+			btn.onclick=function(){
+				num++
+			
+				timer=setInterval(function(){
+					num+=1
+					box.style.left=num+'px';
+					if(num>=200){
+						clearInterval(timer);
+					}
+				},30)
+			}
+		</script>
+	</body>
+</html>

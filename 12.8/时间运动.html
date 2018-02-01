@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+			    width:100px;
+			    height: 100px;
+			    background: skyblue;
+			    position: absolute;
+			    top:30px;
+			    left:100px;
+			}	
+		</style>
+	</head>
+	<body>
+		<button id="btn">运动</button>
+		<div id="box">
+			
+		</div>
+		<script src="../../课件/2017-12-8/tween.js"></script>
+		<script>
+			var btn=document.getElementById('btn');
+			var box=document.getElementById('box');
+			
+			
+		//	b:起始值
+		//	c:总的运动值
+		//	d:持续时间
+		//	t:已过时间
+			
+			
+			
+			let c=300;
+			let d=1000;
+			let b=parseFloat(getComputedStyle(box).left);
+			let timer=null;
+			
+			btn.onclick=function(){
+				let newdate=new Date();
+				timer=setInterval(function(){
+					let nowdate=new Date();
+					let t=nowdate-newdate;
+					if(t>=d){
+						t=d;
+					}
+					if(t==d){
+						clearInterval(timer);
+					}
+					let v=Tween.bounceOut(t,b,c,d);
+					box.style.top=v+'px';
+				},30)
+			}
+		</script>
+	</body>
+</html>

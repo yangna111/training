@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+   <select id="sel">
+        <option value="13">enter</option>
+        <option value="shift+enter">shift+enter</option>
+        <option value="shift+alt+enter">shift+alt+enter</option>
+        <input type="text">
+   </select> 
+        <ul></ul>
+   <script>
+       const ul= document.getElementsByTagName('ul')[0];
+       const sel = document.getElementById('sel');
+       const  t = document.querySelector('input');     
+        let v='13';
+    
+      
+      sel.onchange = function(ev){
+            v = this.value;
+      }
+      
+      t.onkeydown= function(ev){
+          switch(v){             
+              case '13':
+                if(ev.keyCode == 13 && !ev.shiftKey &&!ev.altKey){
+                    let li = document.createElement('li');
+                    li.innerText = this.value;
+                    ul.appendChild(li);
+                    this.value= '';
+                }
+              break;
+              case 'shift+enter':
+                    //  console.log(ev.shiftKey ,ev.keyCode )
+                   if(ev.shiftKey && ev.keyCode == 13){
+                    let li = document.createElement('li');
+                    li.innerText = this.value;
+                    ul.appendChild(li);
+                    this.value= '';
+                   }
+                   break;
+            case 'shift+alt+enter':
+
+                if(ev.shiftKey && ev.altKey && ev.keyCode == 13){
+                    let li = document.createElement('li');
+                    li.innerText = this.value;
+                    ul.appendChild(li);
+                    this.value= '';
+                    }
+                    break;   
+          }
+      }
+
+   </script>
+</body>
+</html>

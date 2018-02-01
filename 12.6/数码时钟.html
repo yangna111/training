@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="p"></p>
+		<script>
+			var p=document.getElementById('p');
+			
+			
+			fn()
+
+			setInterval(fn,1000)
+			
+			function fn(){
+				let date=new Date();
+				let om = date.getMonth()+1;
+				let oy = date.getFullYear();
+				let odate = date.getDate();
+				let oh = date.getHours();
+				let omi = date.getMinutes();
+				let ose = date.getSeconds();							
+				p.innerText= `${oy}年${todou(om)}月${todou(odate)}日 ${todou(oh)}:${todou(omi)}:${todou(ose)}`;				
+}
+			
+			function todou(n){
+				return n<10?'0'+n:''+n;
+			}
+		</script>
+	</body>
+</html>

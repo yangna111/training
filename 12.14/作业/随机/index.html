@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/index.css" rel="stylesheet" />
+	</head>
+	<body>
+		<section id="wrap">
+			<header id="head">
+				<img src="img/logo.png"/>
+				<div id="btn" class="clearfix">
+					<span class="active">从小到大</span>
+					<span>打乱顺序</span>
+				</div>
+			</header>
+			<article id="cons">
+				<ul class="list clearfix">
+					
+				</ul>
+			</article>
+		</section>
+		<script src="js/data.js"></script>
+		<script>
+			const spans=document.getElementsByTagName('span');
+			const ul1=document.getElementsByTagName('ul')[0];
+			  var num=spans[0];
+			  var onOff=true;
+			  var str='';
+		
+		
+			 	
+			for(var i=0;i<data.length;i++){
+							 	 
+			 	if(this.onOff){
+			 			 data.sort(function(a,b){
+			 			 	//onOff=false;
+						 	return b.text[0]-a.text[0];
+						 })
+			 		}else{			 			
+						data.sort(function(a,b){
+			 			 	//onOff=false;
+						 	return a.text[0]-b.text[0];
+						 })
+			 		}
+			 str+=`<li><img src="${data[i].url}"/><p>${data[i].text}</p></li>`;
+			  ul1.innerHTML=str;	
+			}
+		
+				
+			 	
+			
+			 
+			  var lis=ul1.getElementsByTagName('li');
+			  			 
+			 for(var i=0;i<spans.length;i++){
+			 		spans[i].index=i;
+			 	spans[i].onclick=function(){
+				     num.className='';	
+				     spans[this.index].className='active';
+			 		 num=this;			 						 		 			
+				}
+			 	  
+			}
+			
+			
+		</script>
+	
+	</body>
+</html>

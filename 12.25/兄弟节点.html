@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			
+		</ul>
+		<script>
+//			上级兄弟借点:
+//				previousElementSibiling;
+//			下级兄弟借点:
+//				nextElementSibiling;
+				
+			const ul1 = document.getElementById('ul1');
+			let  li2 = ul1.lastElementChild;
+			let  li1 = ul1.firstElementChild;
+				
+				li1.style.background = 'orange';
+				li2.style.background = 'blue';
+				
+				li1.nextElementSibling.style.background = 'skyblue';
+				li2.previousElementSibling.style.background = 'yellow';
+		</script>
+	</body>
+</html>

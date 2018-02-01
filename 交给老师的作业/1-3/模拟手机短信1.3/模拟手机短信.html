@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			li{
+				list-style: none;			
+				text-align: left;
+				width: 250px;
+				height: 30px;
+
+			}
+			
+			li img{
+				width: 24px;
+				height: 24px;
+			}
+			.fr{
+				float: right;
+				
+			}
+			.fl{
+				float: left;
+				
+			}
+			#box{
+				margin: 100px auto;
+				width: 600px;
+				height: 800px;
+				background:url(img/bg.jpg);
+				background-size: 100%;
+				text-align: center;
+			}
+			#box1{
+				display: inline-block;
+				width: 300px;
+				height: 500px;
+				background: #f8ebeb;
+				margin-top: 100px;
+				box-sizing: border-box;
+				border: 1px solid #CBC3C3;
+				border-radius: 15px;
+				position: relative;
+			}
+			i{
+				display: inline-block;
+				width:60px;
+				height: 5px;
+				border-radius: 15px;
+				background:#CBC3C3;
+				margin-top: 15px;
+				
+			}
+			#box2{
+				display: inline-block;
+				width: 260px;
+				height: 400px;
+				background: #fff;
+				margin-top: 15px;
+				box-sizing: border-box;
+				border: 1px solid #c3b3b3;
+				background: #F7F2F2;
+				
+			}
+			#ul{
+				width: 258px;
+				height:348px; 
+				background: #fff; 
+				margin: 0; 
+				padding: 0; 
+				text-align: left;
+				overflow: auto;
+			}
+			#t1{
+				border: 0;
+				outline:none;
+				width:150px;
+				height:28px;
+				border:1px solid #CBC3C3;				
+				border-radius:10px;
+				vertical-align: top;
+			}
+			.img{
+				width: 45px;
+				height: 40px;
+				position: absolute;
+				top:445px;
+				left: 120px;
+			}
+			#btn{
+				border: 0;
+				background: none;
+				vertical-align: top;
+				margin-top: 5px;
+			}
+			#message{
+				margin-top: 10px;
+				width: 258px;
+				height: 40px;
+				background: #f8ebeb;
+			}
+			#img1{
+				width: 30px;
+				height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="box1">
+				<i></i>
+				<img  src="img/miaov.png"/ class="img">
+				<div id="box2">					
+					<ul id="ul">
+						
+					</ul> 
+					<div id="message">
+						<img src="img/lico.png"/ id="img1">
+						<input type="text" placeholder="请输入" id="t1">
+						<button id="btn">发送</button>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<script>
+			//1.获取元素
+			//2.点击切换图片，用开关来控制
+			//3.点击按钮 
+				// 1）如果没写内容 弹出弹框，提示写内容
+				// 2) 点击图片 输入内容 内容和图片一起显示在li里面
+				// 3) 清空input里的内容；
+		
+
+			//获取元素
+		const 	ul = document.getElementById('ul');
+		//const   message = document.getElementById('message');
+		const 	img1 = document.getElementById('img1');
+		const   t1 = document.getElementById('t1');
+		const   btn = document.getElementById('btn');
+		
+		let onOff = true;  //设置开关控制图片切换；
+		//点击切换图片
+		img1.onclick = function(){
+			//alert(1)
+			if(onOff){
+				img1.src = "img/rico.png";
+				onOff = false; //点击之后要把开关变成false,以便下一次点击
+			}else{
+				img1.src = "img/lico.png";	
+				onOff = true;// //点击之后要把开关变成false,以便下一次点击
+			}
+		}
+
+		btn.onclick = function(){
+			let inpv = t1.value;
+			if(!inpv){//没写内容的时候弹提示框
+				alert('请输入内容！');
+			}else{
+				let liClass='';
+				if(onOff){  //根据图片的true和false 来给img 加上class
+					liClass='fr';
+				}else{
+					liClass='fl';
+				}
+		
+			str=`<li><img src="${img1.src}" class="${liClass}"><span  class="${liClass}">${inpv}</span></li>`;
+			ul.innerHTML= str+ul.innerHTML;
+			t1.value = '';
+			}
+		}
+
+	
+				
+
+			
+		</script>
+	</body>
+</html>

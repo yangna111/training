@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.active{
+				border-color:#D6687D;
+			}
+			h2{
+				margin: 0;
+				width: 300px;
+				height: 100px;	
+				font: bold 30px/100px "微软雅黑";
+				color: #D6687D;
+			}
+			
+			#box{				
+				text-align: center;
+				width: 300px;
+				height: 200px;
+				border: 3px solid #CBC3C3;
+				margin: 100px auto;
+			}
+			#box1{
+				padding-top: 20px;
+				width: 300px;
+				height: 100px;	
+			}
+			span{
+				display: inline-block;
+				width: 50px;
+				height: 30px;
+				border: 2px solid #CBC3C3;
+				margin-left: 5px;
+				font:16px/30px "微软雅黑";
+				color: #D6687D;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<h2>妙味课堂</h2>
+			<div id="box1">
+				<span class="active">男</span>
+				<span>女</span>	
+				<span>保密</span>
+			</div>
+		</div>
+		<script>
+			var oSpan=document.getElementsByTagName('span');
+			var a=oSpan[0]
+			for(var i=0;i<oSpan.length;i++){
+				oSpan[i].num=i;
+				oSpan[i].onclick=function(){
+					a.className='';
+					oSpan[this.num].className='active';
+					a=this;
+				}
+				
+			}
+		</script>
+	</body>
+</html>

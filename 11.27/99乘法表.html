@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			span{
+				width:100px;
+				height:30px;
+				border:1px solid #000;
+				display:inline-block;
+				font:24px/30px "微软雅黑";
+				color:#fff;
+				background:red;
+			}
+		</style>
+	</head>
+	<body>
+	<div id="box">
+		
+	</div>
+	</body>
+	<script>
+		var box=document.getElementById('box');
+		let str='';
+		//第一种
+//		for(var i=1;i<=9;i++){
+//			for(var j=1;j<=i;j++){
+//				str +='<span>'+j+'*'+i+'='+(j*i)+'</span>';				
+//			}
+//			str +='<br/>';
+//			
+//		}
+//第二种方法
+//		for(var i=9;i>=1;i--){
+//			for(var j=1;j<=i;j++){
+//				str +='<span>'+j+'*'+i+'='+(j*i)+'</span>';				
+//			}
+//			str +='<br/>';
+//			
+//		}
+//第三种方法
+		for(var i=9;i>=1;i--){
+			for(var j=9;j>=i;j--){
+				str +='<span>'+j+'*'+i+'='+(j*i)+'</span>';				
+			}
+			str +='<br/>';			
+		}
+		box.innerHTML=str;
+	</script>
+</html>

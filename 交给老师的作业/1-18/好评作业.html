@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			ul{margin: 0;padding: 0;}
+			li{list-style: none;}
+			#li2{
+				background:#D6687D;
+				height: 50px;
+				width: 400px;
+				text-align: center;
+				line-height:50px;
+				color: #fff;
+				border-radius: 0 0 10px 10px;
+			}
+			#li1{
+				background:#fff;
+				height: 150px;
+				width: 400px;
+				border-radius:10px;
+				text-align: center;
+			}
+			#box{
+				width: 400px;
+				height: 200px;
+				border: 1px solid #444141;
+				border-radius: 10px;
+			}
+			div:nth-child(1){
+				width: 400px;
+				height: 50px;
+				padding-top: 20px;
+				font-size: 22px;
+				line-height:50px;
+			}
+			div:nth-child(2){
+				width: 400px;
+				height: 60px;
+				padding-top: 20px;
+				line-height:60px;
+			}
+			#box1 li{					
+				float:left;			
+				width: 30px;
+				height: 30px;
+				
+				background: url(img/p3.png) no-repeat; 
+				background-size:100% ;
+			}
+			/* #box1 li{
+				width: 30px;
+				height: 30px;
+			} */
+			#box1{
+				width: 300px;
+				height: 30px;
+				padding-left: 100px;
+				margin-top: 25px;
+			}
+
+			#box1 li.active{
+				background: url(img/p1.png) no-repeat;
+				background-size:100% ;
+			}
+			#box1 li.show{
+				background: url(img/p2.png) no-repeat;
+				background-size:100% ;
+			}
+			p{
+				vertical-align: top;
+				/* display: inline-block; */
+				width: 50px;
+				height: 30px;
+				border-radius: 5px;
+				background: #D6687D;
+				font:16px/30px "微软雅黑";
+				color: #fff;
+				position: absolute;
+				top:90px;
+				left:280px;				
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="box">
+			<li id='li1'>
+				<div>妙味课堂| 总体评价</div>
+				<ul id="box1">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<p></p>
+			</li>
+			<li id='li2'>小提示：点击星星就能打分</li>
+		</ul>
+		<script>
+			var ul1=document.getElementById('box1');
+			var lis=ul1.getElementsByTagName('li');			
+			var oP=document.getElementsByTagName('p')[0];
+			var pText=['极差','一般','不错','推荐','力推'];
+			var n=undefined;
+		/*
+			1.布局的问题，css 样式的问题
+			2.加入img改成背景图片，背景图片没有起作用，background-size:100%的原因;
+			3.n由最初的undefined 变成索引  是因为if判断符合条件就进入if判断是undefined
+			 不符合就进入else 能够进入else是因为n已有undefined变成了索引，就算写在n = this.index写在最后一行代码也会执行;	
+			*/
+
+
+			for(var i=0;i<lis.length;i++){
+				lis[i].index = i;
+				lis[i].onmouseover=function(){
+					clear()
+					changeIco(this.index);
+				}
+				lis[i].onmouseout=function(){
+					clear()
+				typeof n==='undefined'?oP.style.display = 'none':changeIco(n);
+				
+				}
+				lis[i].onclick = function(){
+					n = this.index;
+				}
+			}
+			
+			function clear(){  //清除样式
+				for(var i=0;i<lis.length;i++){
+					oP.style.display = 'none';
+					lis[i].className='';
+				}
+			}	
+			
+			
+		  function changeIco(n){  //共用的封装函数
+			 if(n < 2){	
+					for(var i=0;i<=n;i++){
+						lis[i].className ='active';
+					}					
+					
+				}else{
+					for(var i=0;i<=n;i++){
+					
+						lis[i].className ='show';
+					}	
+				}
+				oP.style.display = 'block';
+				oP.innerText = pText[n];
+			}
+		</script>
+	</body>
+</html>

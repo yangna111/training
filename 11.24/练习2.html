@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn1">点击上一张</button>
+		<button id="btn2">点击下一张</button>
+		<img src="img/1.jpg"/ id="img">
+		<script>
+			var btn1=document.getElementById('btn1');
+			var btn2=document.getElementById('btn2');
+			var img=document.getElementById('img');
+			var arr=['img/1.jpg','img/2.jpg','img/lico.png','img/rico.png',]
+			var num=0;
+			btn1.onclick=function(){				
+				num++				
+				if(num>arr.length-1){
+					num=0;							
+				}
+				img.src=arr[num]		
+			}
+			btn2.onclick=function(){				
+				num--
+				if(num<0){	
+					num=arr.length-1;
+				}	
+				img.src=arr[num]
+				
+			}
+		</script>
+	</body>
+</html>

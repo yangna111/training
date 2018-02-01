@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		.active{
+		    background: yellow;
+		}
+		div.show{
+		    display: block;
+		}
+		div{
+		    width:150px;
+		    height: 150px;
+		    border: 1px solid #000;
+		    display: none;
+		}
+</style>
+	</head>
+	<body>
+		<button type="button" class="active">按钮一</button>
+	    <button type="button">按钮二</button>
+	    <button type="button">按钮三</button>
+	    <div class="show">111111</div>
+	    <div>222222</div>
+	    <div>33333</div>
+	    <script>
+	    	var btns=document.querySelectorAll('button');
+	    	var divs=document.querySelectorAll('div');
+	    	var a=btns[0];
+	    	var b=divs[0];
+	    	for(var i=0;i<btns.length;i++){
+	    		btns[i].num=i
+	    		divs[i].num=i
+	    		btns[i].onclick=function(){
+	    			//点击的时候清楚btns的第一个classname
+	    			a.className='';
+	    			//点击的时候清楚divs的classname
+	    			b.className='';
+	    			//给当前的按钮加上active
+	    			btns[this.num].className='active';
+	    			//给当前的div加上show
+	    			divs[this.num].className='show';
+	    			//让上次的操作等于现在的点击按钮，以便下次循环
+	    			a=btns[this.num];
+	    			b=divs[this.num];
+	    		}
+	    		
+	    		
+	    		
+	    	}
+	    </script>
+	</body>
+</html>

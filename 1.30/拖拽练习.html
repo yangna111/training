@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #box {
+        width:100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        top:0;
+        left:0;
+    }
+</style>
+<body>
+    <div id="box"></div>
+<script>
+    function Drag(id){
+        this.box=document.getElementById(id);
+        this.disX = 0;
+        this.disY = 0;       
+    }
+    Drag.prototype.down = function(){
+        let _this=this;
+        let down = function(ev){
+            _this.disX=ev.pageX-_this.box.offsetLeft;
+            _this.disY=ev.pageY-_this.box.offsetTop;
+
+        }
+    }
+
+</script>
+</body>
+</html>

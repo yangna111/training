@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{
+		    margin: 0;
+		    padding:0;
+		}
+		input{
+		    position: absolute;
+		    top:0;
+		}
+		input:nth-of-type(1){
+		    left:0px;
+		}
+		input:nth-of-type(2){
+		    left:35px;
+		}
+
+</style>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="开始" />
+		<input type="button" name="" id="" value="停止" />
+		<img src="" id="imgs" width="1260">
+		
+		<script>
+			const btns = document.querySelectorAll('input');
+		    const img = document.getElementById('img');
+		    let timer = null;
+		    let num = 0;
+		    
+		    let onOff=true;
+		     btns[0].onclick=function(){
+		     	if(!onOff)return;
+		     	onOff=false;
+		     	autoplay();
+		     	timer=setInterval(autoplay,3000);
+		     }
+		     
+		    function autoplay(){
+		    	num++
+		    	num %=7;
+		    	imgs.src='image/'+(num+1)+'.jpg';
+		    }
+		    
+		    btns[1].onclick=function(){
+		    	 clearInterval(timer);
+		    	 onOff=true;
+		    }
+		</script>
+		
+	</body>
+</html>

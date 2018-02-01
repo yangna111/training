@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				margin: 0;
+			}
+			#box{
+				width: 800px;
+				height: 550px;
+				margin:100px auto;
+				position: relative;
+				padding-top: 100px;
+				padding-left: 150px;
+			}
+			
+			#dec{
+				width:100px;
+				height:100px;
+				box-sizing: border-box;
+				border: 2px solid #000;
+				margin-top:30px;
+			}
+			#btn{
+				border: 1px solid #000;
+				height: 30px;
+				text-align: center;
+				width: 80px;
+				background: #FF0000;
+				font:16px/30px "微软雅黑";
+				color: #fff;
+			}
+			#mark{
+				width: 400px;
+				height: 250px;
+				background:#fff;
+				box-sizing: border-box;
+				border: 1px solid #000;
+				position: absolute;
+				top:150px;
+				left: 400px;
+				display: none;
+				padding-left: 30px;
+			}
+			#bj-cl{
+				height: 40px;
+				color: #000000;
+				font: 14px/20px "微软雅黑";
+				margin-top:20px;
+			}
+			span{
+				float: left;
+				margin: 10px 10px;			
+			}
+			#cl{
+				float: left;
+				margin: 0;
+				padding: 0;
+			}
+			#cl li{
+				width: 40px;
+				height: 40px;
+				background:red;
+				float: left;
+				margin: 5px;
+				list-style: none;
+			}
+			#cl li:nth-child(2){
+				background:yellow;
+			}
+			#cl li:nth-child(3){
+				background:blue;
+			}
+			#wh{
+				height: 30px;
+				color: #000000;
+				font: 14px/20px "微软雅黑";
+				margin-top:20px;
+			}
+			#wh-1{
+				float: left;
+				margin: 0;
+				padding: 0;
+			}
+			#wh-1 li{
+				width: 40px;
+				height: 30px;
+				background:#f7f2f2;
+				box-sizing: border-box;
+				float: left;
+				border: 1px solid #cbc3c3;
+				margin: 5px;
+				list-style: none;
+				text-align: center;
+				font: 14px/30px "微软雅黑";
+			}
+			#cl1:hover{
+				border:1px solid #000000;
+				cursor:pointer;
+			}
+			#cl2:hover{
+				border:1px solid #000000;
+				cursor:pointer;
+			}
+			#cl3:hover{
+				border:1px solid #000000;
+				cursor:pointer;
+			}
+			#wh1:hover{
+				cursor:pointer;
+				border:1px solid #000000;
+				background: #f2c35f;
+			}
+			#wh2:hover{
+				border:1px solid #000000;
+				background: #f2c35f;
+				cursor:pointer;
+			}
+			#wh3:hover{
+				border:1px solid #000000;
+				background: #f2c35f;
+				cursor:pointer;
+			}
+			#ht1:hover{
+				cursor:pointer;
+				border:1px solid #000000;
+				background: #f2c35f;
+			}
+			#ht2:hover{
+				border:1px solid #000000;
+				background: #f2c35f;
+				cursor:pointer;
+			}
+			#ht3:hover{
+				border:1px solid #000000;
+				background: #f2c35f;
+				cursor:pointer;
+			}
+			#ht{
+				height: 30px;
+				color: #000000;
+				font: 14px/20px "微软雅黑";
+				margin-top:20px;
+			}
+			#ht-1{
+				float: left;
+				margin: 0;
+				padding: 0;
+			}
+			#ht-1 li{
+				width: 40px;
+				height: 30px;
+				background:#f7f2f2;
+				box-sizing: border-box;
+				float: left;
+				border: 1px solid #cbc3c3;
+				margin: 5px;
+				list-style: none;
+				text-align: center;
+				font: 14px/30px "微软雅黑";
+			}
+			#btn1{
+				margin-left: 150px;
+				height: 30px;
+				width: 50px;
+				border: 0;
+				color: #fff;
+				background: #0a0452;
+			}
+			#btn2{
+				height: 30px;
+				width: 50px;
+				border: 0;
+				color: #fff;
+				background: #0a0452;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="btn">设置样式</div>
+			<div id="dec"></div>
+			<div id="mark">
+				<div id="bj-cl">
+					<span>
+						请选择背景色：
+					</span>
+					<ul id="cl">
+						<li id="cl1"></li>
+						<li id="cl2"></li>
+						<li id="cl3"></li>
+					</ul>
+				</div>
+				<div id="wh">
+					<span>
+						请选择宽度(px)：
+					</span>
+					<ul id="wh-1">
+						<li id="wh1">200</li>
+						<li id="wh2">300</li>
+						<li id="wh3">400</li>
+					</ul>
+				</div>
+				<div id="ht">
+					<span>
+						请选择高度(px)：
+					</span>
+					<ul id="ht-1">
+						<li id="ht1">200</li>
+						<li id="ht2">300</li>
+						<li id="ht3">400</li>
+					</ul>
+				</div><br />				
+					<button id="btn1">恢复</button>
+					<button id="btn2">确认</button>			
+			</div>				
+		</div>
+		<script>
+			//声明变量
+			var box=document.getElementById('box');
+			var btn=document.getElementById('btn');
+			var mark=document.getElementById('mark');
+			var dec=document.getElementById('dec');
+			var cl1=document.getElementById('cl1');
+			var cl2=document.getElementById('cl2');
+			var cl3=document.getElementById('cl3');
+			var wh1=document.getElementById('wh1');
+			var wh2=document.getElementById('wh2');
+			var wh3=document.getElementById('wh3');
+			var ht1=document.getElementById('ht1');
+			var ht2=document.getElementById('ht2');
+			var ht3=document.getElementById('ht3');
+			var btn1=document.getElementById('btn1');
+			var btn2=document.getElementById('btn2');
+			//当点击btn的时候 box和mark的样式改变
+			btn.onclick=function(){
+				box.style.cssText='background: #d7c2c2;opacity: 0.9;';
+				mark.style.cssText='display:block;z-index:10;';
+			
+			}
+			
+			cl1.onclick=function(){
+				dec.style.background='red';
+				
+			}
+			cl2.onclick=function(){
+				dec.style.background='yellow';
+				
+			}
+			cl3.onclick=function(){
+				dec.style.background='blue';
+				
+				
+			}
+			wh1.onclick=function(){
+				dec.style.width='200px';
+			}
+			wh2.onclick=function(){
+				dec.style.width='300px';
+			}
+			wh3.onclick=function(){
+				dec.style.width='400px';
+			}
+			ht1.onclick=function(){
+				dec.style.height='200px';
+			}
+			ht2.onclick=function(){
+				dec.style.height='300px';
+			}
+			ht3.onclick=function(){
+				dec.style.height='400px';
+			}
+			btn1.onclick=function(){
+				dec.style.cssText='';
+			}
+			btn2.onclick=function(){
+				mark.style.cssText='display: none';
+				box.style.cssText='';
+			}
+		</script>
+	</body>
+</html>

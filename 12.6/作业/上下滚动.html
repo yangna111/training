@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			.box{
+				width:300px;
+				height: 800px;
+				border: 1px solid #0A0452;
+				margin: 0 auto;
+				border-radius: 10px;
+				text-align: center;
+			
+			}
+			#box2{
+				width: 100%;
+				height:618px;
+				position: relative;
+				overflow: hidden;
+			}
+			.top{
+				width: 100%;
+				height: 60px;
+				background: #1230C8;
+				border-radius: 10px 10px 0 0 ;
+				font:26px/60px "微软雅黑";
+				color: #fff;
+			}
+			.btn1{
+				width: 100%;
+				height:60px;
+				background: #F1F1F1;
+
+			}
+			.btn2{
+				width: 100%;
+				height:60px;
+				background: #F1F1F1;
+
+			}
+			img{
+				width: 30px;
+				height: 30px;
+				margin-top: 20px;
+			}
+			ul{
+				width: 100%;
+				height: 598px;
+				position: absolute;
+				
+				margin: 0;
+				padding: 0;
+				
+			}
+			li{
+				list-style: none;
+				width: 100%;
+				height: 80px;
+			}
+			ul li:nth-child(2n){
+				background-color: #9C5A9C;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="top">
+				妙味课堂
+			</div>
+			<div class="btn1">
+				<img id="img1" src="imgs/按钮.png"/>
+			</div>
+			<div id="box2">
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>	
+					<li>6</li>
+					<li>7</li>
+					<li>8</li>
+					<li>9</li>
+					<li>10</li>
+					<li>11</li>
+					<li>12</li>	
+					<li>13</li>
+					<li>14</li>
+					<li>15</li>
+					<li>16</li>
+					<li>17</li>
+					<li>18</li>
+				</ul>	
+			</div>					
+			<div class="btn2">
+				<img id="img2" src="imgs/按钮2.png"/>
+			</div>
+		</div>
+		<script>
+			var img1=document.getElementById('img1');
+			var img2=document.getElementById('img2');
+			var ul1=document.querySelector('ul');
+			var oli=document.querySelectorAll('li');
+			var box2=document.getElementById('box2');
+			var timer=null;
+			var num=0;
+			
+			img1.onmousedown=function (){
+					clearInterval(timer);						
+				timer=setInterval(function(){
+					num--	
+				if(num<=-822){
+					clearInterval(timer);
+					} else{
+						ul1.style.top=num+'px';
+					}
+				},10)	
+				
+			}
+			img1.onmouseup=function(){
+				clearInterval(timer);	
+			}
+			img2.onmousedown=function (){
+					clearInterval(timer);						
+				timer=setInterval(function(){
+					num++	
+					if(num>=0){
+					clearInterval(timer);
+					} else{
+						ul1.style.top=num+'px';
+					}
+				},10)	
+				
+				
+			}
+			img2.onmouseup=function(){
+				clearInterval(timer);	
+			}
+		</script>
+		
+	</body>
+</html>

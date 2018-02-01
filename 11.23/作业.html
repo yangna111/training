@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			li{
+				list-style: none;			
+				text-align: left;
+			}
+			.fl{
+				float: right;
+				margin:10px 0;
+				width: 250px;
+				text-align: right;
+			}
+			.lf{
+				float: left;
+				margin:10px 0;
+				width: 250px;
+				text-align: left;
+			}
+			#box{
+				margin: 100px auto;
+				width: 600px;
+				height: 800px;
+				background:url(img/bg.jpg);
+				background-size: 100%;
+				text-align: center;
+			}
+			#box1{
+				display: inline-block;
+				width: 300px;
+				height: 500px;
+				background: #f8ebeb;
+				margin-top: 100px;
+				box-sizing: border-box;
+				border: 1px solid #CBC3C3;
+				border-radius: 15px;
+				position: relative;
+			}
+			span{
+				display: inline-block;
+				width:60px;
+				height: 5px;
+				border-radius: 15px;
+				background:#CBC3C3;
+				margin-top: 15px;
+				
+			}
+			#box2{
+				display: inline-block;
+				width: 260px;
+				height: 400px;
+				background: #fff;
+				margin-top: 15px;
+				box-sizing: border-box;
+				border: 1px solid #c3b3b3;
+				background: #F7F2F2;
+				
+			}
+			#ul{
+				width: 258px;
+				height:348px; 
+				background: #fff; 
+				margin: 0; 
+				padding: 0; 
+				text-align: left;
+				overflow: auto;
+			}
+			#t1{
+				border: 0;
+				outline:none;
+				width:150px;
+				height:28px;
+				border:1px solid #CBC3C3;				
+				border-radius:10px;
+				vertical-align: top;
+			}
+			.img{
+				width: 45px;
+				height: 40px;
+				position: absolute;
+				top:445px;
+				left: 120px;
+			}
+			#btn{
+				border: 0;
+				background: none;
+				vertical-align: top;
+				margin-top: 5px;
+			}
+			#message{
+				margin-top: 10px;
+				width: 258px;
+				height: 40px;
+				background: #f8ebeb;
+			}
+			#img1{
+				width: 30px;
+				height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="box1">
+				<span></span>
+				<img  src="img/miaov.png"/ class="img">
+				<div id="box2">					
+					<ul id="ul">
+						<li style="float:right;"></li>
+						<li style="float:left;"></li>
+					</ul>
+					<div id="message">
+						<img src="img/lico.png"/ id="img1">
+						<input type="text" placeholder="请输入" id="t1">
+						<button id="btn">发送</button>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<script>
+			var div1=document.getElementById('div1');
+			var t1=document.getElementById('t1');
+			var btn=document.getElementById('btn');
+			var img1=document.getElementById('img1');
+			var onOff=true;
+			// 点击img切换图片
+			img1.onclick=function(){
+				if(onOff){
+					img1.src='img/rico.png';
+					onOff=false;
+				}else{
+					img1.src='img/lico.png';
+					onOff=true;
+				}
+			}
+			//点击发送
+			btn.onclick=function(){
+				var tv=t1.value;				
+				if(t1.value==''){
+					alert('亲，写点内容吧！')
+					
+				}else if(onOff){
+					ul.innerHTML='<li class="lf"; >'+'<img src='+img1.src+'>'+tv+'</li>'+'<br/>'+ul.innerHTML;
+					t1.value='';
+				}else{
+					ul.innerHTML='<li class="fl";>'+tv+'<img src='+img1.src+'>'+'</li>'+'<br/>'+ul.innerHTML;
+					t1.value='';
+				}
+				
+				
+//				ul.innerHTML+='<li>'+'<img src='+img1.src+'>'+tv+'</li>'+'<br/>';			
+//				ul.innerHTML+='<img src='+img1.src+'>'+tv+;'<br/>'				
+//				ul.innerHTML+='<li style="float:right;"></li>
+//				ul.innerHTML+='<img src='+img1.src+''+style="width:30px;height:30px"+>'+tv+'<br/>';
+				
+			}
+		</script>
+	</body>
+</html>

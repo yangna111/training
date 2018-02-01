@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#ul1{
+				margin: 0 auto;
+				width: 356px;
+				height: 630px;
+				background: url(img/bj.png) no-repeat;
+				text-align:center;
+				padding-top: 50px;
+			}
+			#ul1 .list{
+				display: inline-block;
+				width: 300px;	
+				margin-bottom: 15px;
+			}
+			ul,h3{
+				padding: 0;
+				margin: 0;
+			} 
+			li{
+				list-style: none;
+			}
+			#ul1 h3{
+				width: 300px;
+				height: 50px;
+				text-align: left;
+				text-indent: 28px;
+				font: 16px/50px "微软雅黑";
+				color: #fff;
+				background:rgba(50,28,31,0.8) url(img/btn.png) no-repeat 15px 15px;
+			}
+		  #ul1 ul li{
+		  	text-align: left;
+		  	text-indent: 40px;
+		  	height: 40px;
+		  	background: rgba(50,28,31,0.8);
+		  	font: 14px/40px "微软雅黑";
+			color: #fff;
+		  }
+		  #ul1 ul{
+		  	display:none;
+		  }
+		  #ul1 .active{
+		  	text-indent: 32px;
+		  	background: rgba(242,133,148,0.8) url(img/btn2.png) no-repeat 15px 18px;		  
+		  }
+		  #ul1 .bj{
+		  	background: rgba(82,77,77,0.8);
+		  }
+		</style>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li class="list">
+				<h3>我的好友</h3>
+				<ul>
+					<li>马云</li>
+					<li>刘强东</li>
+					<li>王思聪</li>
+					<li>范冰冰</li>
+				</ul>
+			</li>
+			<li class="list">
+				<h3>企业好友</h3>
+				<ul>
+					<li>阿里巴巴</li>
+					<li>京东</li>
+					<li>阿里云</li>
+					<li>万达</li>
+				</ul>
+			</li>
+			<li class="list">
+				<h3>黑名单</h3>
+				<ul>
+					<li>李刚</li>
+					<li>郭美美</li>					
+				</ul>
+			</li>
+		</ul>
+		<script>
+			
+				var ul1=document.getElementById('ul1');
+				var ah3=ul1.getElementsByTagName('h3');
+				var ul2=ul1.getElementsByTagName('ul');
+				var ali=null;
+				var arrli=[];
+
+			for(var i=0;i<ah3.length;i++){
+			     	ah3[i].index=i
+				ah3[i].onclick=function (){
+					if(this.classList==''){
+						ul2[this.index].style.display='block';
+						this.classList='active';
+					}else{
+						ul2[this.index].style.display='none';
+						this.classList='';
+					}
+				}
+			}
+			
+			for(var i=0; i<ul2.length;i++){
+				 ali=ul2[i].getElementsByTagName('li');
+				for(var j=0;j<ali.length;j++){
+					arrli.push(ali[j]);
+				}
+			}
+			
+			for(var i=0;i<arrli.length;i++){
+				arrli[i].onclick=function(){
+				for(var i=0;i<arrli.length;i++){
+					arrli[i].className='';
+				}
+					this.className='bj'
+				}
+			}
+		</script>
+	</body>
+</html>

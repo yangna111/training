@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul{
+				padding: 0;
+				margin: 0;
+			}
+			img{
+				vertical-align: top;
+			}
+			li{
+				list-style: none;
+			}
+			.box{
+				width: 600px;
+				height: 400px;
+				margin: 50px auto;
+				background: #5b344b;
+				text-align: center;
+			}
+			.box1{
+				display: inline-block;
+				width: 500px;
+				height: 300px;
+				border-radius: 5px;
+				margin-top: 50px;
+			}
+			.ul1{
+				height: 210px;
+				background: #fff;
+				padding: 20px 0;
+				border-radius: 5px 5px 0 0;
+				text-align: left;
+			}
+			.ul1 li{
+				height: 35px;
+				font: 15px/35px "微软雅黑";
+				color: #171818;
+				text-indent: 20px;
+			}
+			.ul1 li input{
+				width: 15px;
+				height: 15px;
+				margin: 0;
+			}
+			/*.ul1 li:nth-child(2n){
+				background-color:rgba(247,197,206,0.8);
+			}*/
+			.ul1 li.rgb{
+				background:rgba(247,197,206,0.8);
+			}
+			.ul1 li.rgb1{
+				background:#fff;
+			}
+			.ul2{
+				height: 50px;
+				background: #de4a63;
+				border-radius: 0 0 5px 5px;
+			}
+			.ul1 li span:nth-of-type(1){
+				display: inline-block;
+				width: 380px;
+			}
+			.ul2 li{
+				float: left;
+				height: 30px;
+				display: inline-block;
+				margin-right: 55px;
+				margin-top: 10px;
+				
+			}
+			.ul2 li input{
+				background: 0;
+				width: 15px;
+				height: 15px;
+				margin: 0;
+				margin-left: 20px;
+			}
+			.ul2 li img{
+				margin-top: 5px;
+				width: 20px;
+				height: 20px;
+			}
+			.ul2 li span{
+				margin-left: 10px;
+				font: 14px/30px "微软雅黑";
+				color: #fff;
+			}
+			.ul2 li:nth-child(4){
+				margin-right: 0;
+			}
+			.ul1 li.cl{
+				background:#e13151 ;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box1">
+				<ul class="ul1">
+					<li>
+						<input type="checkbox" />
+						<span>泡沫</span>
+						<span>邓紫棋</span>
+					</li>
+					<li>
+						<input type="checkbox" />
+						<span>说爱你</span>
+						<span>蔡依林</span>
+					</li>
+					<li>
+						<input type="checkbox" />
+						<span>稻香</span>
+						<span>周杰伦</span>
+					</li>
+					<li>
+						<input type="checkbox" />
+						<span>我的梦</span>
+						<span>张靓颖</span>
+					</li>
+					<li>
+						<input type="checkbox" />
+						<span>怎么说我不爱你</span>
+						<span>萧敬腾</span>
+					</li>
+					<li>
+						<input type="checkbox" />
+						<span>无处安放</span>
+						<span>白若溪</span>
+					</li>
+				</ul>
+				<ul class="ul2">					
+					<li><input type="checkbox" id="checkbox"> <span>全选</span></li>
+					<li><img src="img/heart.png"/><span>收藏</span></li>
+					<li><img src="img/add.png"/><span>添加</span></li>
+					<li><img src="img/shanchu.png"/><span>删除</span></li>
+				</ul>
+			</div>
+		</div>
+		<script>
+			var ul1=document.querySelector('.ul1');
+			var ul2=document.querySelector('.ul2');
+			var check=document.getElementById('checkbox');
+			var ali=Array.from(ul1.getElementsByTagName('li'));
+			var ali2=ul2.getElementsByTagName('li')[0];
+			var inp=ali2.getElementsByTagName('input')[0];
+				
+			inp.onOff=false;
+		//隔行变色	
+		ali.forEach(function(e,i){
+			if(i%2){
+				e.className='rgb';
+			}else{
+				e.className='rgb1';
+			}			
+		})
+		
+		//移入变色移出恢复
+		let arr=[];
+		ali.forEach(function(e,i){
+			arr[i]=false;
+			e.onmouseover=function(){
+				this.classList.add('cl');
+			}
+			e.onmouseout=function(){
+				if(!arr[i]){
+				this.classList.remove('cl')
+				}
+			}
+			
+			//点击变色,input被选中	
+		
+			e.onclick=function(){
+				let inp2=e.getElementsByTagName('input')[0];
+				if(!arr[i]){		//如果true,input就被选中			
+					inp2.checked = true;					
+				}else{
+					inp2.checked = false;
+				}
+				
+				arr[i]=!arr[i];
+				checkbox.checked=inp.onOff=arr.every(function(e,i){
+					return e;
+				})
+			}
+		})
+		
+		
+		ali2.onclick=function(){
+			if(inp.onOff){
+				inp.checked=false;
+			}else{
+				inp.checked=true;
+			}
+			
+			inp.onOff=!inp.onOff;
+			
+		ali.forEach(function(e,i){
+			e.getElementsByTagName('input')[0].checked=checkbox.checked;
+			if(checkbox.checked){
+				e.classList.add('cl');
+				arr[i]=true;
+			}else{
+				e.classList.remove('cl');
+				arr[i]=false;
+			}
+		})
+	}
+		
+			
+		</script>
+	</body>
+</html>

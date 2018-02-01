@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    li{
+       width: 100px;
+       height: 100px;
+       background-color: #2ba8e2;
+       float: left;
+       margin: 10px;
+       list-style: none;
+    }
+    
+</style>
+<body id="body">
+    <ul id="ul">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script> 
+        const body = document.getElementById('body');
+        const ul = document.getElementById('ul');
+        const lis = ul.children;
+
+        document.onmousedown = function(ev){
+            let disX = ev.pageX;
+            let disY = ev.pageY;
+            let div = document.createElement('div');
+            body.appendChild(div);
+        }
+    </script>
+</body>
+</html>

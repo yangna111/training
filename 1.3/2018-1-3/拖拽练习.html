@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: rebeccapurple;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        //拖拽三大事件：
+            // onmousedown 按下
+            // onmousemove 移动
+            // onmousedown  抬起
+            
+            const box = document.getElementsByClassName('box')[0];
+
+            box.onmousedown = function(ev){
+                let downX = ev.pageX-box.offsetLeft;
+                let downY = ev.pageY-box.offsetTop;
+                
+                document.onmousemove = function(e){
+                    let moveX = e.pageX;
+                    let moveY = e.pageY;
+                box.style.left =moveX-downX+'px';
+                box.style.top = moveY-downY+'px';              
+                }
+                document.onmouseup = function(){
+                    document.onmousemove =null;
+                    document.onmouseup = null;
+                }
+                return false;
+            }
+    </script>
+</body>
+</html>

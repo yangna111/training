@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .k{
+            /* width: 100px;
+            height: 100px; */
+            border: 1px solid blueviolet;
+            background-color: aqua;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body id="body">
+    
+<script>
+        const body = document.getElementById('body');
+        //鼠标按下是插入div
+
+        document.onmousedown = function(ev){
+            let disX =ev.pageX;//先获取鼠标的位置之后在插入div
+            let disY = ev.pageY;
+
+            let div = document.createElement('div'); 
+            body.appendChild(div);
+            div.className = 'k';
+       
+           
+         document.onmousemove =function(e){
+             let  w = Math.abs(e.pageX-disX);
+             let  h = Math.abs(e.pageY-disY);
+            div.style.width = w+'px';
+            div.style.height = h+'px';
+
+            let l=Math.min(disX,e.pageX);
+            let t=Math.min(disY,e.pageY);
+
+            div.style.left = l +'px';
+            div.style.top =  t+'px';
+         }
+            
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup =null;
+                div.remove();
+            }
+        }
+</script>
+</body>
+
+</html>

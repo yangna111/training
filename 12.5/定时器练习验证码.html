@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="点击获取验证码" />
+		<script>
+			var btn=document.querySelector('input');
+			var timer=null;
+			var num=10;
+			
+			btn.onclick=function(){
+				
+				timer=setInterval(function (){
+				btn.value='重新获取验证码（'+num+'）';
+				btn.disabled=true;
+				num--
+				if(num<-1){
+					num=10;
+					btn.value='获取验证码';
+					btn.disabled=false;
+					clearInterval(timer);
+				}
+			},1000)
+				
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

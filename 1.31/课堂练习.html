@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+<script>
+//         //深度克隆
+//     let arr = [1,2,3,4,5,6,[{name:'hh',arr:[7,8]}]];
+
+//     function deepCopy(data){
+//             let o=data.push?[]:{};
+//             for(let attr in data){
+//                 if(typeof data[attr] === 'objcet'){
+//                     o[attr]=deedpCopy(data[attr]);
+//                 }else{
+//                     o[attr]=data[attr];
+//                 }
+//             }
+
+//             return o;
+//     }
+
+
+//    let arr2 = deepCopy(arr);
+//     arr2.push(10);
+//     console.log(arr2);
+
+
+var li = document.getElementsByTagName('li');
+    for(let i=0;i<li.length;i++){
+        li[i].onclick=function(){
+            console.log(i)
+        }
+    }
+     
+
+     function fn1(){
+        var a = 0;
+        function fn2(){
+            a++;
+            console.log(a)
+        }
+        return fn2
+     }
+     var fn =fn1()
+     fn()
+     fn()
+     fn()
+</script>
+   
+
+
+
+</body>
+</html>

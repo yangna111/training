@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="按钮一" />
+		<input type="button" name="" id="" value="按钮二" />
+		<input type="button" name="" id="" value="按钮三" />
+		<input type="button" name="" id="" value="按钮四" />	
+		<script>
+			var btn=document.querySelectorAll('input');
+//			btn[0].num=1;
+//			btn[0].onclick=function(){
+//				btn[0].num++;
+//				if(btn[0].num>=3){
+//					btn[0].disabled=true;
+//				}
+//			}
+//			
+// 			btn[1].num=1;
+//			btn[1].onclick=function(){
+//				btn[1].num++;
+//				if(btn[1].num>=3){
+//					btn[1].disabled=true;
+//				}
+//			}
+//			btn[2].num=1;
+//			btn[2].onclick=function(){
+//				btn[2].num++;
+//				if(btn[2].num>=3){
+//					btn[2].disabled=true;
+//				}
+//			}
+//			btn[3].num=1;
+//			btn[3].onclick=function(){
+//				btn[3].num++;
+//				if(btn[3].num>=3){
+//					btn[3].disabled=true;
+//				}
+//			}
+
+		
+			for(let i=0;i<btn.length;i++){	
+					btn[i].num=1;
+
+				btn[i].onclick=function(){	
+					btn[i].num++;	
+					
+				if(btn[i].num>=3){						
+				    btn[i].disabled=true;
+				}				
+			}
+		}
+
+		</script>
+	</body>
+</html>

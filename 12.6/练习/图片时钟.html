@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div"></div>
+		
+		<div id="div2">
+			<img src="img/0.png" />
+			<img src="img/0.png" />
+			<img src="img/second1.png" />
+			<img src="img/0.png" />
+			<img src="img/0.png" />
+			<img src="img/second1.png" />
+			<img src="img/0.png" />
+			<img src="img/0.png" />
+		</div>
+		<script>			
+			var div2=document.getElementById('div2');
+			var imgs=div2.getElementsByTagName('img');
+					 
+			function toTow(n){
+				return n<10?'0'+n:''+n;
+			}
+			 mytime()
+			setInterval(mytime,1000);
+			
+			function mytime(){
+				let oDate=new Date();
+				let oHour=oDate.getHours();
+				let oMin=oDate.getMinutes();
+				let oSec=oDate.getSeconds();
+				let str= toTow(oHour)+':'+ toTow(oMin)+':'+ toTow(oSec);
+				
+				for(var i=0;i<str.length;i++){
+					if(i!=2 && i!=5){
+						imgs[i].src=`img/${str[i]}.png`;
+					}
+				}
+			}
+		
+		</script>
+	</body>
+</html>

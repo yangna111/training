@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<script>
+			let obj={
+				width:'200px',
+				height:'200px',
+				background:'yellow',
+				border:'1px solid red',
+			}
+			const box=document.getElementById('box');
+			for(var attr in obj){
+				box.style[attr]=obj[attr];
+			}
+			
+		</script>
+	</body>
+</html>

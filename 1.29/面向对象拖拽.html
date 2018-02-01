@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #box {
+        width:100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        top:0;
+        left:0;
+    }
+</style>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    // function Drag(id){
+    //     this.box = document.getElementById(id);
+    //     this.disX = 0;
+    //     this.disY = 0;
+    //     //this.down()
+    // }
+    // Drag.prototype.down = function(){
+    //     let _this = this;
+    //     this.box.onmousedown = function(ev){
+    //          _this.disX = ev.pageX-_this.box.offsetLeft;
+    //          _this.disY = ev.pageY-_this.box.offsetTop;   
+    //          _this.move();
+    //          _this.up(); 
+    //          return false;
+    //     }
+
+      
+    // }
+    // Drag.prototype.move = function(){
+    //     let _this = this;
+    //     document.onmousemove = function(ev){
+    //         _this.box.style.left = ev.pageX-_this.disX+'px';
+    //         _this.box.style.top = ev.pageY-_this.disY+'px';
+    //     }
+    // }
+    // Drag.prototype.up = function(){
+    //         document.onmouseup = function(ev){
+    //             document.onmousemove = document.onmouseup = null;   
+    //     }
+    // }
+    // let drag = new Drag('box');
+    // drag.down()
+
+        function Drag(id){
+            this.box = document.getElementById(id);
+            this.disX = 0;
+            this.disY = 0;
+        }
+
+        Drag.prototype.down = function(){
+           let _this = this;
+          document.addEventListener('mousedown',function(ev){
+                _this.disX = ev.pageX-_this.box.offsetLeft;
+                _this.disY = ev.pageY-_this.box.offsetTop;
+                _this.move(ev);
+                //_this.up();
+            })
+
+        }
+
+        Drag.prototype.move = function(ev){
+            let _this=this;
+            document.addEventListener('mousemove',_this.move1(ev))
+                    
+        }
+
+        Drag.prototype.move1= function (ev){
+            this.box.style.left = ev.pageX-this.disX+'px';
+            this.box.style.top = ev.pageY-this.disY+'px';           
+        }
+
+        // Drag.prototype.up = function(){
+        //     document.addEventListener('mouseup',up());
+        //     function up(){
+        //         document.removeEventListener('mouseup',up)
+        //         document.removeEventListener('mousemove',move)
+        // }
+        let drag = new Drag('box');
+        drag.down()
+
+       
+       
+</script>
+</html>

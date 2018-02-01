@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button">按钮一</button>
+		<button type="button">按钮二</button>
+		<button type="button">按钮三</button>
+		<button type="button">按钮四</button>
+		<button type="button">按钮五</button>
+		
+	<script>
+		var btns=document.querySelectorAll('button');
+		var arr=['星期一','星期二','星期三','星期四','星期五'];
+		
+//		 for(let i=0;i<btns.length;i++){
+//		 			btns[i].num=1;	
+//		 	btns[i].onclick=function(){	
+//		 		this.num++
+//			   this.innerText=arr[i];
+//		}
+//	 }
+		 
+			 for(var i=0;i<btns.length;i++){
+		 			btns[i].num=i;	
+		 			
+		 	btns[i].onclick=function(){	//给每个按钮添加点击事件
+			   this.innerText=arr[this.num];
+		}
+	 }
+	</script>	
+		
+	</body>
+</html>

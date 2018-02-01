@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="price.css" />
+	</head>
+
+	<body onselectstart="return false;">
+		<div class="wrap">
+			<div class="box">
+				<ul class="list">
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>12.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>10.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>8.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>8元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>14.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+				</ul>
+				<div class="info">
+					<span>商品公合计：<em>0</em>件</span>
+					<span>共花费了：<em>0</em>元</span>
+					<br />
+					<br />
+					<span>其中最贵的商品单价是：<em>0</em>元</span>
+				</div>
+			</div>
+		</div>
+<script>
+ 
+	// 难点：最贵的筛选，合计总件数，合计总金额
+	// 知道原理自己写不出怎么让它们关联起来，最贵函数里的开关只明白大概意思，具体的原理还要在深究
+	/*
+		1.先封装出一个li的件数和金额的加减
+		2.写三个数组分别用来添加 每次点击的件数 总金额 和 单价过滤； 封装函数来让每次的单价和金额相加
+		3.在封装一个找出最贵的函数
+		4，for循环封装的li函数
+	
+	
+	*/
+
+
+	// 获取元素
+	const  list = document.getElementsByClassName('list')[0];
+	const  lis = list.getElementsByTagName('li');
+	const  info = document.getElementsByClassName('info')[0];
+	const  eMs = info.getElementsByTagName('em'); //底边的件数，合计和最贵
+	let arr1=[];//总件数
+	let arr2=[];//总金额
+	let arr3=[];//单价
+	for(var i=0;i<lis.length;i++){
+		lis[i].index = i;
+		arr1[i]=arr2[i]=arr3[i]=0;
+		change(lis[i])
+	}
+		
+
+
+
+	//封装一个li里增加和减少的函数；
+	function change(lis){
+		
+		let oI = lis.getElementsByTagName('i'); //减少和增加
+		let eM = lis.getElementsByTagName('em')[0]; //件数
+		let strongs = lis.getElementsByTagName('strong');//单价和小计金额
+		let price = parseFloat(strongs[0].innerText);
+		let num = 0;
+
+		oI[1].onclick = function(){
+			num++;
+			eM.innerText = num;
+			arr1[lis.index] =num;	
+			arr3[lis.index]	=price;	
+			//strongs[1].innerText = num*price+'元';
+			count(lis.index,strongs)
+		}
+		oI[0].onclick = function(){
+			num--;
+			if(num<=0){
+				num=0;
+				arr1[lis.index]=0;
+				arr3[lis.index]=0;
+			}
+			eM.innerText = num;
+			arr1[lis.index] =num;				
+			count(lis.index,strongs)	
+		}	
+	}
+
+	 function sum1(){
+		let num1 = 0;
+		for(var i=0;i<arr1.length;i++){
+			num1+=arr1[i]
+		}
+		return num1;
+	}
+
+	function sum2(){
+		let num1 = 0;
+		for(var i=0;i<arr2.length;i++){
+			num1+=arr2[i]
+		}
+		return num1;
+	}
+	
+	function count(i,strongs){
+		let price = parseFloat(strongs[0].innerText);
+		strongs[1].innerText = arr1[i]*price+'元';
+		arr2[i]=arr1[i]*price;
+		eMs[0].innerText=sum1();
+		eMs[1].innerText=sum2();
+		eMs[2].innerText=expensive();
+	}
+	
+	function expensive(){
+		let min = -Infinity;
+		let onOff = true;
+		for(var i=0;i<arr3.length;i++){
+			if(arr3[i]){
+				onOff = false;
+			}
+			if(min<arr3[i]){
+				min=arr3[i];
+			}
+		}
+		if(onOff){
+			return 0;
+		}else{
+			return min;
+		}
+	}
+</script>
+</body>
+
+</html>

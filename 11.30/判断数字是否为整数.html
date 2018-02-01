@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="inp" value="" />
+		<button id='btn'>点击</button>
+
+		<script>
+//			1.点击按钮(获取元素 点击事件)
+//			2.if
+//			3.input.value
+//			4.判断是否为整数
+		var inp=document.getElementById('inp');
+		var btn=document.getElementById('btn');
+		
+		btn.onclick=function(){
+	
+			if(inp.value==''){		
+				alert('请输入内容');
+			}else {
+				if(parseInt(inp.value)==parseFloat(inp.value)){
+				alert('是整数')
+			}else{
+				alert('不是整数');
+			}
+				}
+		}
+		</script>
+	</body>
+</html>

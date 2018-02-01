@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+		.active{
+		    background: yellow;
+		}
+		div.show{
+		    display: block;
+		}
+		div{
+		    width:150px;
+		    height: 150px;
+		    border: 1px solid #000;
+		    display: none;
+		}
+</style>
+	</head>
+	<body>
+		<button type="button" class="active">按钮一</button>
+	    <button type="button">按钮二</button>
+	    <button type="button">按钮三</button>
+	    <div class="show">111111</div>
+	    <div>222222</div>
+	    <div>33333</div>
+	 <script>
+	 	var btns=document.querySelectorAll('button');
+	 	var divs=document.querySelectorAll('div');
+	 	let a=btns[0];
+	 	for(var i=0;i<btns.length;i++){
+	 		btns[i].index=i
+	 		btns[i].onclick=function(){
+	 			a.className='';	 
+	 			divs[a.index].className='';	
+	 			divs[this.index].className='show';
+	 			this.className='active';
+	 			a=this;
+	 		}
+	 		
+	 		
+	 		
+	 		
+	 	}
+	 </script>
+	</body>
+</html>

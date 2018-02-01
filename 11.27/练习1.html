@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="全选" />
+		<input type="button" name="" id="" value="反选" />
+		<input type="button" name="" id="" value="全不选" />
+		<input type="checkbox" name="" id="" value="" />
+		<input type="checkbox" name="" id="" value="" />
+		<input type="checkbox" name="" id="" value="" />
+		<input type="checkbox" name="" id="" value="" />
+		<input type="checkbox" name="" id="" value="" />
+		<script>
+			var btns=document.querySelectorAll('input[type=button]');
+			var checks=document.querySelectorAll('input[type=checkbox]');
+			btns[0].onclick=function(){							
+						for(var i=0;i<checks.length;i++){
+							checks[i].checked=true;
+						}
+					}
+				
+			btns[2].onclick=function(){							
+						for(var i=0;i<checks.length;i++){
+							checks[i].checked=false;
+						}
+					}
+	//如果选中的是true,那么就是false;	
+			btns[1].onclick=function(){							
+						for(var i=0;i<checks.length;i++){
+							if(checks[i].checked){
+								checks[i].checked=false;
+							}else{
+							checks[i].checked=true;
+}
+						}
+					}
+		</script>
+	</body>
+</html>

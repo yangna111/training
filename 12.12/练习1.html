@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+//			let str='miaovmiaovmiaovmiaov';
+//			let arr=[];///声明arr接受i的下标
+//			let num=0;  ///声明num是为了让下一个下标能够循环
+//			
+//			while(str.indexOf('i',num)!=-1){  //寻找下标的时候不等于-1就会进入循环，否则就会停止循环。因为-1代表着没有这个字符
+//				arr.push(str.indexOf('i',num)); //把循环找出的下标push到arr的数组里
+//				num=str.indexOf('i',num)+1;	 //	是为了知道从那一个字符开始下一轮新的寻找
+//			}
+//			
+//			console.log(arr)
+			
+			
+//			let str='miaovmiaovmiaovmiaov'; 
+//			
+////			let arr=[];  ///声明arr接受i的下标
+//			function searchIdex(str,s,num=0){
+//				let arr=[];
+//				while(str.indexOf(s,num)!=-1){  //寻找下标的时候不等于-1就会进入循环，否则就会停止循环。因为-1代表着没有这个字符
+//				arr.push(str.indexOf(s,num)); //把循环找出的下标push到arr的数组里
+//				num=str.indexOf(s,num)+1;	 //	是为了知道从那一个字符开始下一轮新的寻找
+//				}
+//				return arr;
+//			}
+//			//console.log(arr)
+//			let arr2=searchIdex(str,'i');
+//			console.log(str.charAt(Math.max.apply('',arr2)+1))
+			
+			let str='miaovmiaovmiaovmiaov'; 
+			let arr=[];
+			let num=str.length-1;
+			
+			while(str.lastIndexOf('m',num)!=-1 && str.lastIndexOf('m',num)!=0){  //寻找下标的时候不等于-1就会进入循环，否则就会停止循环。因为-1代表着没有这个字符
+				arr.push(str.lastIndexOf('m',num)); //把循环找出的下标push到arr的数组里
+				num=str.lastIndexOf('m',num)-1;	 //	是为了知道从那一个字符开始下一轮新的寻找
+				
+				if(str.lastIndexOf('m',num)==0){
+				break;///如果是0就跳出   如果开始第一个是m 就会进入死循环，因为判断条件是-1，而第一个是m的话下标就会是0,那么就一直不会是-1,就会进入死循环
+				}
+			}
+			
+			console.log(arr);
+		</script>
+	</body>
+</html>

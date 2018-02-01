@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #ccc;
+		
+		}
+		.active{
+			background: #87CEEB;
+		}
+		</style>
+	</head>
+	<body>
+		<button type="button">按钮一</button>
+		<button type="button">按钮二</button>
+		<button type="button">按钮三</button>
+		<div class="show"></div>
+		<script>
+			var btns=document.querySelectorAll('button');
+			var divs=document.querySelector('div');
+			var arr=['这是第一个按钮','这是第二个按钮','这是第三个按钮'];
+			
+			for(var i=0;i<btns.length;i++){
+				btns[i].num=i				
+				btns[i].onclick=function(){
+					for(var i=0;i<btns.length;i++){
+					btns[i].classList='';						
+					}
+					this.classList.add('active');
+					divs.innerHTML=arr[this.num];
+				}
+			}
+		</script>
+	</body>
+</html>

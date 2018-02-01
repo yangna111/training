@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			ul{margin: 0;padding: 0;}
+			li{list-style: none;}
+			li:nth-child(2){
+				background:#D6687D;
+				height: 50px;
+				width: 400px;
+				text-align: center;
+				line-height:50px;
+				color: #fff;
+				border-radius: 0 0 10px 10px;
+			}
+			li:nth-child(1){
+				background:#fff;
+				height: 150px;
+				width: 400px;
+				border-radius:10px;
+				text-align: center;
+			}
+			#box{
+				width: 400px;
+				height: 200px;
+				border: 1px solid #444141;
+				border-radius: 10px;
+			}
+			div:nth-child(1){
+				width: 400px;
+				height: 50px;
+				padding-top: 20px;
+				font-size: 22px;
+				line-height:50px;
+			}
+			div:nth-child(2){
+				width: 400px;
+				height: 60px;
+				padding-top: 20px;
+				line-height:60px;
+			}
+			i{	
+				display: inline-block;			
+				width: 30px;
+				height: 30px;
+				line-height: 30px;
+				background: url(img/p3.png);
+				background-size:100% ;
+			}
+			i img{
+				width: 30px;
+				height: 30px;
+			}
+			span{
+				vertical-align: top;
+				display: inline-block;
+				width: 50px;
+				height: 30px;
+				border-radius: 5px;
+				background: #D6687D;
+				font:16px/30px "微软雅黑";
+				color: #fff;
+				margin-top: 7px;
+				margin-left: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="box">
+			<li id='li1'>
+				<div>妙味课堂| 总体评价</div>
+				<div id="box1">
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+					<span></span>
+				</div>
+			</li>
+			<li>小提示：点击星星就能打分</li>
+		</ul>
+		<script>
+			document.get
+			var box1=document.getElementById('box');
+			var oi=box1.getElementsByTagName('i');			
+			var oSpan=document.getElementsByTagName('span')[0];
+			var arrimgs=['img/p1.png','img/p1.png','img/p2.png','img/p1.png','img/p1.png'];
+			var spantext=['极差','一般','不错','推荐','力推'];
+			var num=0;
+			
+			
+			for(var i=0;i<arrimgs.length;i++){
+				
+				 oi[i].index=i;				 
+				oi[i].onmouseover=function(){										
+					this.innerHTML=`<img src="${arrimgs[this.index]}">`;
+					oSpan.innerText=spantext[this.index];
+				
+				}	
+			
+				oi[i].onmouseout=function(){										
+					this.innerHTML=`<img src="${arrimgs[this.index]}">`;
+					oSpan.innerText=spantext[this.index];
+				
+				}	
+				//初始化
+				//imgs[i].src=arrimgs[num];
+				oSpan.innerText=spantext[num];
+			}
+			
+			
+		</script>
+	</body>
+</html>
