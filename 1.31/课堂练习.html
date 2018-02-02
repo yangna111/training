@@ -33,30 +33,52 @@
 //     console.log(arr2);
 
 
-var li = document.getElementsByTagName('li');
-    for(let i=0;i<li.length;i++){
-        li[i].onclick=function(){
-            console.log(i)
-        }
-    }
+// var li = document.getElementsByTagName('li');
+//     for(let i=0;i<li.length;i++){
+//         li[i].onclick=function(){
+//             console.log(i)
+//         }
+//     }
      
 
-     function fn1(){
-        var a = 0;
-        function fn2(){
-            a++;
-            console.log(a)
-        }
-        return fn2
-     }
-     var fn =fn1()
-     fn()
-     fn()
-     fn()
+
+    //闭包面试题
+    //  function fn1(){
+    //     var a = 0;
+    //     function fn2(){
+    //         a++;
+    //         console.log(a)
+    //     }
+    //     return fn2
+    //  }
+    //  var fn =fn1()
+    //  fn()
+    //  fn()
+    //  fn()
+
+      
+        
+    
+    // let obj={name:123}
+    // let arr =[];
+    // let str ='';
+    // let b = false;
+    // let f=function(){}
+    // console.log(Object.prototype.toString.call({}));
+    
+    // console.log(isArray([]))
+    // function isArray(data){
+    //     let toStr = Object.prototype.toString;
+    //     return toStr.call(data)==='[object Array]'?true:false;
+    // }
+
+
+    console.log(isObject({}));
+    
+    function isObject(data){
+        let toObj = Object.prototype.toString;
+        return toObj.call(data)==='[object Object]'?true:false;
+    }
 </script>
-   
-
-
-
 </body>
 </html>
