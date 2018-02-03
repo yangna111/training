@@ -4,3 +4,15 @@ div{
   height: 100px;
   background: red;
 }
+
+
+#root{
+  height: 500px;
+  width: 500px;
+  background-color: rgb(248, 108, 194);
+}
+button{
+  width: 100px;
+  height: 40px;
+  margin: 10px;
+}
