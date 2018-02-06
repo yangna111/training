@@ -33,7 +33,7 @@ class App extends Component{
     let {arr,val}=this.state;
     let list =arr.map((e,i)=><li key={i}>{e}</li>)
      return(
-       <div>
+       <div> 
           <input type = "text" 
           value = {val}
           onKeyUp={this.keyup}
