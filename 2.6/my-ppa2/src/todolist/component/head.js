@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 
 class Head extends Component {
     constructor(){
@@ -9,11 +9,19 @@ class Head extends Component {
         }
     }
     keyup=(ev)=>{
-        let {val}=this.state;
-        let {changValue,data}=this.props;
+        let {val}=this.state;//按下keyup时把当前新创建的是数据传送给父级让父级通过changeValue来改变数据
+        let {changValue}=this.props;
         if(ev.keyCode===13){
             if(!val.trim())return;
-            console.log(ev);
+            let obj={
+                id:+new Date,
+                txt:val,
+                checked:false
+            }
+         changValue(obj);
+         this.setState({
+             val:''
+         })
                        
         }
         
@@ -30,10 +38,10 @@ class Head extends Component {
             <header className="header" >
                 <h1>todos</h1>
                 <input className="new-todo" 
-                placeholder="请输入内容"
-                onChange={this.change}
-                onKeyUp={this.keyup}
-                 value={val}
+                    placeholder="请输入内容"
+                    onChange={this.change}
+                    onKeyUp={this.keyup}
+                    value={val}
                  />
             </header>
         )

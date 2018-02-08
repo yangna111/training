@@ -23,7 +23,18 @@ class Index extends Component{
             ]
         }
     }
-
+    changeFocus=(id,newVal)=>{
+        let {arr}=this.state;
+        let arr2=arr.concat();
+        arr2.forEach((e,i)=>{
+            if(e.id==id){
+                e.txt=newVal
+            }
+        })
+        this.setState({
+            arr:arr2
+        })
+    }
     //点击全选
     all=(ev)=>{
         let {checked}=ev.target;
@@ -79,7 +90,8 @@ class Index extends Component{
                 id:e.id,
                 checked:e.checked,
                 changeChecked:this.changeChecked,
-                rm:this.rm
+                rm:this.rm,
+                changeFocus:this.changeFocus
             }}/>
 
         })
