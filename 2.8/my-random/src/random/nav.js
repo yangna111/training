@@ -16,7 +16,7 @@ class Nav extends Component {
             checkNav(id,num)
     }
 
-    render() { 
+    rende r() { 
         let {txt,active,id,num}=this.props
         let {cTxt}=this.state
         if(id==0){
